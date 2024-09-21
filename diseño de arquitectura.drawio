@@ -99,11 +99,11 @@
         </mxCell>
         <mxCell id="eN1-oS6o8lZS3Jwxj0Ql-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="aE5lieWQpzTKknCINHqT-38">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="659" y="390" as="targetPoint" />
+            <mxPoint x="659" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="aE5lieWQpzTKknCINHqT-38" value="Información de pago&lt;br&gt;Registro de pacientes&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="559" y="500" width="200" height="130" as="geometry" />
+          <mxGeometry x="559" y="490" width="200" height="130" as="geometry" />
         </mxCell>
         <mxCell id="aE5lieWQpzTKknCINHqT-34" value="" style="group" parent="aE5lieWQpzTKknCINHqT-38" vertex="1" connectable="0">
           <mxGeometry x="90" y="50" width="110" height="69" as="geometry" />
@@ -124,7 +124,7 @@
           <mxGeometry x="28.199999999999932" y="26" width="33.6" height="44" as="geometry" />
         </mxCell>
         <mxCell id="aE5lieWQpzTKknCINHqT-40" value="Historial medico" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" parent="1" vertex="1">
-          <mxGeometry x="559" y="10" width="155" height="144" as="geometry" />
+          <mxGeometry x="559" width="155" height="144" as="geometry" />
         </mxCell>
         <mxCell id="aE5lieWQpzTKknCINHqT-33" value="" style="group" parent="aE5lieWQpzTKknCINHqT-40" vertex="1" connectable="0">
           <mxGeometry x="16.799999999999955" y="50" width="50" height="80" as="geometry" />
@@ -142,7 +142,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="eN1-oS6o8lZS3Jwxj0Ql-10" value="Notificaciones" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="559" y="250" width="211" height="140" as="geometry" />
+          <mxGeometry x="559" y="240" width="211" height="140" as="geometry" />
         </mxCell>
         <mxCell id="eN1-oS6o8lZS3Jwxj0Ql-16" value="" style="group" vertex="1" connectable="0" parent="eN1-oS6o8lZS3Jwxj0Ql-10">
           <mxGeometry y="38.999999999999986" width="110" height="82.92000000000002" as="geometry" />
