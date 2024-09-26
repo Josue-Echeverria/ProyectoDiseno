@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" version="24.7.16">
   <diagram name="Página-1" id="tHOlpyftnfR9CjqHY-Eq">
-    <mxGraphModel dx="274" dy="150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -32,6 +32,9 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="G4KIGZkFgdN5oXFQT-fE-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="IaJx66ODFedWKtUgJ-ii-4" target="aE5lieWQpzTKknCINHqT-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_Q8yVDGweCyXuHI0wToa-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="IaJx66ODFedWKtUgJ-ii-4" target="aE5lieWQpzTKknCINHqT-10">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="IaJx66ODFedWKtUgJ-ii-4" value="API Gateway" style="rounded=0;whiteSpace=wrap;html=1;rotation=-90;" parent="1" vertex="1">
@@ -70,7 +73,7 @@
         <mxCell id="aE5lieWQpzTKknCINHqT-37" value="Azure containers" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="aE5lieWQpzTKknCINHqT-35" vertex="1">
           <mxGeometry y="39" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="zOR87bIMfiXyVXDTgbYf-1" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Worker_Container_App.svg;" vertex="1" parent="aE5lieWQpzTKknCINHqT-35">
+        <mxCell id="zOR87bIMfiXyVXDTgbYf-1" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Worker_Container_App.svg;" parent="aE5lieWQpzTKknCINHqT-35" vertex="1">
           <mxGeometry x="34" y="-1" width="41.21" height="40" as="geometry" />
         </mxCell>
         <mxCell id="-aeYwxXNu2YT8m-ENwX4-11" value="Recordatorios" style="rounded=0;whiteSpace=wrap;html=1;" parent="aE5lieWQpzTKknCINHqT-4" vertex="1">
