@@ -21,7 +21,7 @@ Prioridad 3
 - Orientación y nutrición<
 
 ## Diagrama de arquitectura
-![diseño de arquitectura drawio](https://github.com/user-attachments/assets/bae4b693-c96f-42f0-a5aa-8bee07a80328)
+![diseño de arquitectura drawio (1)](https://github.com/user-attachments/assets/57ac267a-6a7b-4ddb-ac5d-d23682a496b1)
 
 ## Problem Statement y Storyboard
 Convencer al dueño de la mascota de agendar una cita veterinaria virtual.
