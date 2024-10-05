@@ -36,6 +36,34 @@ Convencer al dueño de la mascota de agendar una cita veterinaria virtual.
 ## Requerimientos no funcionales
 
 ### **Performance**
+**1. ¿Cuáles son los tiempos de respuesta esperados para diferentes funciones en condiciones de carga normal y máxima?**
+
+Teniendo en cuenta la estimación de 1.900 clínicas y 76.000 citas realizadas mensualmente a través de la aplicación:
+Cálculo de usuarios pico y normales:
+Citas totales por mes: 76.000 citas.
+Citas promedio por día: 76.000 / 30 = 2533 citas por día.
+Usuarios pico: Suponiendo un periodo pico de aproximadamente 2 horas por día donde se reservan o realizan el 25 % de las citas diarias: 25 % de las citas diarias = 2533× 0,25 = 633 citas.
+Los usuarios pico (suponiendo una consulta por video + uso administrativo) podrían duplicar esta cifra (para usuarios que reservan y veterinarios que realizan): Usuarios pico simultáneos = 633 × 2 = 1266
+Usuarios normales: suponiendo una distribución constante a lo largo de una jornada laboral de 8 horas: (2533 - 633) / 6 = 317 usuarios simultáneos en horas normales.
+
+Bajo cargas normales (317 usuarios):
+El login y la autenticación su respuesta sería entre 1 y 2 segundos.
+El inicio de una cita virtual en menos de 5 segundos.
+Bookear la cita entre 2 y 3 segundos.
+Acceder al historial de la mascota entre 1 y 2 segundos.
+Bajo pico de cargas (1266 usuarios):
+El inicio de una cita virtual podría llegar a los 7 segundos.
+Las otras operaciones podrían aumentar su tiempo en un 50%.
+
+**2. ¿Cuántos usuarios simultáneos debe admitir el sistema?**
+
+Carga normal entre 300 a 500 usuarios simultáneos.
+Carga máxima: Escalable a 1500 usuarios simultáneos, especialmente durante las horas pico de la clínica.
+
+**3. ¿Cuáles son los puntos de referencia de rendimiento para operaciones críticas?**
+
+Consultas por video: Mantener la latencia por debajo de los 150 ms, con un tiempo de actividad del 99,9%.
+Operaciones de base de datos: Consultas de registros médicos y programación de citas completadas en 500 ms con carga normal y en menos de 1 segundo durante las horas pico.
 
 ### **Scalability**
 **4. ¿Como se manejara la escalabilidad del sistema en caso de un aumento en la carga o volumen de datos?**
@@ -64,6 +92,15 @@ Para que el sistema maneje los fallos y asegure la integridad de los datos, se u
 La base de datos en 'Azure SQL' será respaldada automáticamente de manera diaria. Los logs y archivos importantes serán almacenados en 'Azure Queue Storage' con una retención de 30 días para asegurar la recuperación en caso de fallos. Para la base de datos y las colas, el tiempo de recuperación debe de ser de 2 horas y el punto de recuperación de 15 minutos.
 
 ### **Availability**
+**9. ¿Cuáles son los requisitos de tiempo de actividad del sistema?**
+
+El sistema requiere de un tiempo de actividad del 99,9 %, por lo que la aplicación puede estar aproximadamente 43 minutos inactiva por mes. Esto genera una alta confiabilidad tanto para los veterinarios como para los dueños de mascotas. Esto se puede garantizar por medio de ‘Azure containers’, ‘Azure SQL’ y ‘Azure Queue Storage’ ya que proporcionan alta disponibilidad.
+**10. ¿Existen horarios específicos en los que el sistema debe estar disponible sin fallas?**
+
+Horario comercial  para veterinarias de 7 a. m. a 7 p. m los 7 días de la semana, el sistema debe estar disponible durante el horario comercial normal de los veterinarios, ya que es cuando se producirán la mayoría de las consultas y reservas. 
+Para asistencia de emergencia también se debe garantizar la disponibilidad fuera del horario comercial para consultas de emergencia para manejar tráfico ocasional fuera de horas pico fuera del horario comercial estándar.
+Campañas nacionales de salud de mascotas o situaciones de emergencia para mascotas ya que durante estos eventos, debe asegurarse de que el sistema pueda manejar posibles aumentos de usuarios, lo que hace que el tiempo de actividad sea crítico.
+Cuando se presenten promociones o descuentos por día, ya que muchos usuarios van a querer aprovecharlos y buscarían agendar cita ese día, aumentando así la concurrencia de usuarios.
 
 ### **Security**
 **11. ¿Qué requerimientos de seguridad hay para el almacenamiento y transmicion de datos?**
@@ -93,6 +130,22 @@ El sistema debe de incluir soporte para lectores de pantalla, compatibilidad con
 Como requerimientos para la documentación y la capacitación de usuarios, se tiene que, dentro de la aplicación se tendrá un video tutorial acompañado por guías escritas. Esto debido a que los videos se consideran mucho más amigables y fáciles de seguir que un documento escrito, pero en caso que el usuario lo prefiera también tendrá a disponibilidad las guías escritas. En el caso de los administradores, se dará una documentación técnica por medio de 'Azure API Management' ya que esto facilitará la supervisión y gestión de la plataforma.
 
 ### **Maintainability**
+**17. ¿Qué tan fácil debería ser actualizar y modificar el sistema?**
+
+Contenedorización con Azure Containers: dado que la aplicación se implementa a través de Azure Containers, las actualizaciones se pueden realizar creando nuevas imágenes de contenedor.  Esto proporciona flexibilidad en el control de versiones.
+Azure Functions para los componentes sin servidor, las actualizaciones son fáciles y se pueden realizar sin afectar otras partes del sistema, lo que garantiza una escalabilidad.
+Azure API Management permite administrar versiones de API, lo que simplifica la implementación de nuevas versiones y la descontinuación gradual de las antiguas sin interrumpir el servicio.
+
+**18. ¿Cuáles son los requisitos para el registro y monitoreo del rendimiento del sistema?**
+
+Firebase proporciona herramientas como Firebase Crashlytics para monitorear fallas y rendimiento del sistema, especialmente útiles para identificar y solucionar problemas en tiempo real. Además de Firebase Analytics para realizar un seguimiento de registros detallados del comportamiento del usuario, los patrones de uso de la aplicación y el estado del sistema.
+Azure Monitor para realizar un seguimiento de las métricas de rendimiento (por ejemplo, tiempos de respuesta, rendimiento) y configurar alertas para problemas como alta latencia o errores del sistema.
+Azure Log Analytics para consultar, analizar y visualizar los datos, lo que garantiza la trazabilidad total de las operaciones del sistema.
+
+**19. ¿Cómo debe gestionar el sistema el control de versiones y la implementación?**
+
+Control de versiones con Git para el control de código fuente, y GitHub para el control de versiones.
+El deploy de la aplicación usando Azure Containers.
 
 ### **Interoperability**
 **20. ¿Cómo debería el sistema integrarse con el software y hardware existentes?**
@@ -116,6 +169,15 @@ El sistema debe cumplir con la 'Ley de Protección de Datos' perteneciente a Cos
 El sistema debe seguir los estándares de protección de datos médicos y asegurar que las videollamadas y transacciones de información médica cumplan con las regulaciones para proteger la privacidad del paciente. 'Azure SQL' y 'Firebase' son plataformas que ya cumplen con estos estándares.
 
 ### Extensibility
+**24. ¿Cómo debería diseñarse el sistema para dar cabida a futuras mejoras?**
+
+API REST para manejar diferentes funcionalidades dentro de un solo servicio. Esto permite una administración y un desarrollo más sencillos.
+El código modular dentro del servicio API REST, lo que le permitirá agregar nuevas características o funcionalidades sin afectar significativamente el código existente.
+Control de versiones de API (/api/v1/, /api/v2/) para permitir futuras mejoras o cambios importantes mientras mantiene la compatibilidad con versiones anteriores para los clientes.
+**25. ¿Existen áreas específicas donde la extensibilidad es fundamental?**
+
+La API REST para que se integre fácilmente con servicios de terceros para así proporcionar un marco flexible para puntos finales o enlaces adicionales. Esto mediante el uso del API de Notta para la IA y Shopify para integración de ecommerce.
+Se considera agregar puntos finales para análisis e informes, lo que habilitará capacidades futuras como el seguimiento del comportamiento de los usuarios, las tendencias de citas o el análisis de ingresos.
 
 ### Localization
 **26. ¿Cuáles son los requisitos para soportar múltiples idiomas y regiones?**
