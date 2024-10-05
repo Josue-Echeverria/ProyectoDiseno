@@ -139,7 +139,6 @@ Azure API Management permite administrar versiones de API, lo que simplifica la 
 **18. ¿Cuáles son los requisitos para el registro y monitoreo del rendimiento del sistema?**
 
 Firebase proporciona herramientas como Firebase Crashlytics para monitorear fallas y rendimiento del sistema, especialmente útiles para identificar y solucionar problemas en tiempo real. Además de Firebase Analytics para realizar un seguimiento de registros detallados del comportamiento del usuario, los patrones de uso de la aplicación y el estado del sistema.
-Azure Monitor para realizar un seguimiento de las métricas de rendimiento (por ejemplo, tiempos de respuesta, rendimiento) y configurar alertas para problemas como alta latencia o errores del sistema.
 Azure Log Analytics para consultar, analizar y visualizar los datos, lo que garantiza la trazabilidad total de las operaciones del sistema.
 
 **19. ¿Cómo debe gestionar el sistema el control de versiones y la implementación?**
