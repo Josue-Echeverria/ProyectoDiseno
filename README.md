@@ -26,7 +26,9 @@ Prioridad 3
 
 ## Diagrama de bases de datos datos
 
+![image](https://github.com/user-attachments/assets/57de504c-8d53-41b3-ae3a-933ccaa5c30d)
 
+[Scripts para crear base de datos][data]
 
 ## Problem Statement y Storyboard
 Convencer al dueño de la mascota de agendar una cita veterinaria virtual.
