@@ -24,6 +24,10 @@ Prioridad 3
 ## Diagrama de arquitectura
 ![diseño de arquitectura drawio (5)](https://github.com/user-attachments/assets/05f3f1a2-640c-414a-8819-ae351bb61aa9)
 
+## Diagrama de bases de datos datos
+
+
+
 ## Problem Statement y Storyboard
 Convencer al dueño de la mascota de agendar una cita veterinaria virtual.
 
