@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  mssql:
+    build:
+      context: .
+      dockerfile: ./data/Dockerfile.data
+    container_name: mssql
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: YourStrong!Passw0rd
+      ACCEPT_EULA: Y
+    volumes:
+      - ./data/:/docker-entrypoint-initdb.d
+    entrypoint: ["/bin/bash", "/docker-entrypoint-initdb.d/entrypoint.sh"]
