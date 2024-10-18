@@ -20,6 +20,7 @@ export default function App() {
           <PantallaVeterinarias
             goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')} 
             goBack={() => setCurrentScreen('PantallaPrincipal')}
+            goToAgendar={() => setCurrentScreen('PantallaAgendar')}
           />
       );
     }

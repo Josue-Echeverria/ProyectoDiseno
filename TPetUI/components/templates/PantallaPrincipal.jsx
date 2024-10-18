@@ -9,7 +9,7 @@ import BlueContainer from '../molecules/BlueContainer.jsx';
 const PantallaPrincipal = ({ goToVeterinarias, goToAgendar, goToPantallaPrincipal }) => {
   return (
     <View style={styles.container}>
-      <BlueContainer text="TPet" />
+      <BlueContainer text="TPet" showBackArrow={false} />
 
       {/* Contenedor para la primera imagen y botón */}
       <View style={styles.imageButtonContainer}>

@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import BackArrow from '../assets/backArrow.png'; 
 
-const BlueContainer = ({ text }) => {
+const BlueContainer = ({ text, onBackPress, showBackArrow = true }) => {
   return (
     <View style={styles.container}>
-      {/* <BackArrow onPress={onBackPress} />  */}
+      {showBackArrow && (
+        <TouchableOpacity onPress={onBackPress} style={styles.arrowContainer}>
+          <Image source={BackArrow} style={styles.image} />
+        </TouchableOpacity>
+      )}
       <Text style={styles.text}>{text}</Text>
     </View>
   );
@@ -25,6 +30,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     marginLeft: 20,
+  },
+  arrowContainer: {
+    alignItems: 'center', 
+  },
+  image: {
+    width: 30,
+    height: 30,
   },
 });
 

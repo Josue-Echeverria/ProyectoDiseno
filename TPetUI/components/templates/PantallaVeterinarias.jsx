@@ -5,7 +5,7 @@ import TarjetaVet from '../organisms/TarjetaVeterinaria.jsx';
 import imagen1 from '../assets/LogoVetDefault.jpg';
 import BlueContainer from '../molecules/BlueContainer.jsx';
 
-const PantallaVeterinarias = ({ goToPantallaPrincipal, goBack }) => {
+const PantallaVeterinarias = ({ goToPantallaPrincipal, goBack, goToAgendar}) => {
     const [currentScreen, setCurrentScreen] = useState('PantallaPrincipal');
 
     const [veterinarias] = useState([ //simulación de datos del backend
@@ -41,7 +41,7 @@ const PantallaVeterinarias = ({ goToPantallaPrincipal, goBack }) => {
 
     return (
         <View style={styles.container}>
-            <BlueContainer text="Veterinarias" />
+            <BlueContainer text="Veterinarias" onBackPress={goBack} showBackArrow={true} />
             <View style={styles.container2}>
             <ScrollView>
                 {veterinarias.map((vet, index) => (
@@ -52,6 +52,7 @@ const PantallaVeterinarias = ({ goToPantallaPrincipal, goBack }) => {
                         precio={vet.precio}
                         imagen={vet.imagen}
                         cantEstrellas={vet.cantEstrellas}
+                        goToAgendar={goToAgendar}
                     />
                 ))}
             </ScrollView>
