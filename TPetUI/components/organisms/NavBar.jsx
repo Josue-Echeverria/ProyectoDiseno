@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import NavItem from '../molecules/NavItem.jsx';
+import NavItem from '../atoms/NavItem.jsx';
 
 const NavBar = ({ goToPantallaPrincipal, onSettingsPress, onProfilePress }) => {
   return (

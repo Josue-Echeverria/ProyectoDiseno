@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const NavItem = ({ iconName, text, onPress }) => {
+const NavItem = ({ text, onPress }) => {
   return (
     <TouchableOpacity style={styles.navItem} onPress={onPress}>
       <Text style={styles.text}>{text}</Text>
