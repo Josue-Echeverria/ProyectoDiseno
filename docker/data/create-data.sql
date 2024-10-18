@@ -152,5 +152,92 @@ VALUES
 (1,7,78,8), 
 (1,7,78,5), 
 (1,7,78,7), 
-(1,7,78,12);
+(1,7,78,12),
+(1,7,81,24),
+(1,7,82,25),
+(1,7,82,26),
+(1,7,82,27),
+(1,7,82,29),
+(1,7,80,19),
+(1,7,78,9);
+
+INSERT INTO [dbo].[usuario] ([nombre] ,[apellido] ,[correo] ,[telefono],[fechaNacimiento] ,[idDireccion])
+     VALUES 
+    ('Josue David', 'Echeverria Perez', 'josuecrperez@gmail.com', '83107055', '2002-02-02', 1),
+    ('Maria Elena', 'Rodriguez Gomez', 'maria.rodriguez@gmail.com', '84561234', '1990-11-10', 2),
+    ('Carlos Andres', 'Martinez Fernandez', 'carlos.martinez@hotmail.com', '89675421', '1985-05-25', 3),
+    ('Ana Gabriela', 'Lopez Mora', 'ana.lopez@yahoo.com', '81234567', '1995-07-15', 4),
+    ('Jorge Luis', 'Ramirez Castro', 'jorge.ramirez@gmail.com', '86549875', '1992-09-08', 5),
+    ('Lucia Beatriz', 'Vargas Solano', 'lucia.vargas@hotmail.com', '81976543', '1987-03-22', 6),
+    ('Fernando Jose', 'Arias Pineda', 'fernando.arias@gmail.com', '83214789', '1994-06-14', 7),
+    ('Gabriela Maria', 'Diaz Rojas', 'gabriela.diaz@yahoo.com', '89653214', '1989-08-30', 8),
+    ('Ricardo Esteban', 'Herrera Sanchez', 'ricardo.herrera@hotmail.com', '87654321', '1983-01-12', 9),
+    ('Laura Patricia', 'Soto Jimenez', 'laura.soto@gmail.com', '89123456', '1996-04-28', 10),
+    ('Manuel Antonio', 'Chacon Rivera', 'manuel.chacon@hotmail.com', '85236987', '1988-12-19', 11),
+    ('Diana Carolina', 'Gutierrez Porras', 'diana.gutierrez@gmail.com', '83456712', '1991-03-07', 12),
+    ('Alberto Javier', 'Mendez Ocampo', 'alberto.mendez@hotmail.com', '87765432', '1997-05-11', 13),
+    ('Karla Sofia', 'Zamora Muñoz', 'karla.zamora@yahoo.com', '82415673', '1993-11-17', 14),
+    ('Felipe Alejandro', 'Vega Rojas', 'felipe.vega@gmail.com', '81876543', '1990-09-09', 15)
+    ;
+
+
+INSERT INTO [dbo].[especie] ([nombre])
+     VALUES
+        ('Perro')
+        ,('Gato');
+
+INSERT INTO [dbo].[raza]([nombre], [idEspecie])
+     VALUES
+    ('Golden Retriever', 1),
+    ('Labrador Retriever', 1),
+    ('German Shepherd', 1),
+    ('Bulldog', 1),
+    ('Poodle', 1),
+    ('Beagle', 1),
+    ('Rottweiler', 1),
+    ('Siberian Husky', 1),
+    ('Boxer', 1),
+    ('Dachshund', 1),
+    ('Persian', 2),
+    ('Maine Coon', 2),
+    ('Siamese', 2),
+    ('Sphynx', 2),
+    ('Bengal', 2),
+    ('Ragdoll', 2),
+    ('British Shorthair', 2),
+    ('Abyssinian', 2),
+    ('Scottish Fold', 2),
+    ('Russian Blue', 2);
+
+INSERT INTO dbo.especialidad (nombre)
+    VALUES 
+    ('Medicina Interna'),
+    ('Cirugía Veterinaria'),
+    ('Dermatología'),
+    ('Cardiología'),
+    ('Oncología');
+
+
+INSERT INTO [dbo].[veterinario] ([idUsuario],[idEspecialidad],[numeroCuenta])
+VALUES
+    (10, 3, '372945106542397')
+    ,(11,1,'859321047586230')
+    ,(12,5,'193748520914567')
+    ,(13,4,'624850193267489')
+    ,(16,2,'285619740352816')
+    ,(17,2,'930514872630975')
+    ,(18,3,'741293086514720');
+
+
+INSERT INTO [dbo].[mascota] ([nombre],[fechaNacimiento],[idRaza],[idUsuario])
+     VALUES
+		('Nala','2011-06-15',12,1),
+		('Max','2013-09-24',6,14),
+		('Luna','2015-02-08',7,15),
+		('Milo','2018-07-30',1,20),
+		('Simba','2020-11-19',3,21),
+		('Bella','2021-03-22',4,22),
+		('Rocky','2016-12-05',17,23),
+		('Coco','2023-01-17',15,24);
+
 
