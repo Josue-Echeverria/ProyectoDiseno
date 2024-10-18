@@ -12,11 +12,16 @@ export default function App() {
         <PantallaPrincipal
           goToVeterinarias={() => setCurrentScreen('PantallaVeterinarias')}
           goToAgendar={() => setCurrentScreen('PantallaAgendar')}
-          goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')} // Añadido aquí
+          goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')} 
         />
       );
     } else if (currentScreen === 'PantallaVeterinarias') {
-      return <PantallaVeterinarias />;
+        return ( 
+          <PantallaVeterinarias
+            goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')} 
+            goBack={() => setCurrentScreen('PantallaPrincipal')}
+          />
+      );
     }
   };
 
