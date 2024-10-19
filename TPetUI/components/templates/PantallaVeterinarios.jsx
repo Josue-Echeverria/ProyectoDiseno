@@ -5,34 +5,42 @@ import TarjetaVet from '../organisms/TarjetaVeterinaria.jsx';
 import imagen1 from '../assets/LogoVetDefault.jpg';
 import BlueContainer from '../molecules/BlueContainer.jsx';
 
-const PantallaVeterinarias = ({ goToPantallaPrincipal, goBack, goToAgendar}) => {
+const PantallaVeterinarios = ({ goToPantallaPrincipal, goBack, goToAgendar}) => {
     const [currentScreen, setCurrentScreen] = useState('PantallaPrincipal');
 
     const [veterinarias] = useState([ //simulación de datos del backend
         {   
-            nombre: 'Veterinaria PetCare',
+            nombre: 'Josue Echeverría',
             horario: 'L-V 8:00am - 5:00pm',
+            especialidad: 'Cirujano',
+            descripcion: 'Especialista en cirugías de alta complejidad.',
             precio:  '₡20000',
             imagen: imagen1,
             cantEstrellas: 4
         },
         {
-            nombre: 'Veterinaria Mundo Animal',
+            nombre: 'Harlen Quirós',
             horario: 'L-D 24/7',
+            especialidad: 'Animales Exóticos',
+            descripcion: 'Especialista en animales exóticos y silvestres.',
             precio:  '₡15000',
             imagen: imagen1,
             cantEstrellas: 3
         },
         {
-            nombre: 'Clínica Veterinaria Los Pinos',
+            nombre: 'Luany Masís',
             horario: 'L-S 3:00pm - 7:00pm',
+            especialidad: 'Análisis Clínico',
+            descripcion: 'Especialista en análisis clínicos y diagnósticos.',
             precio:  '₡25000',
             imagen: imagen1,
             cantEstrellas: 5
         },
         {
-            nombre: 'Clínica Veterinaria Guau Guau',
+            nombre: 'Rodrigo Nuñez',
             horario: 'L-V 7:00am - 5:00pm',
+            especialidad: 'Medicina General',
+            descripcion: 'Especialista en medicina general y preventiva.',
             precio:  '₡25000',
             imagen: imagen1,
             cantEstrellas: 5
@@ -41,14 +49,16 @@ const PantallaVeterinarias = ({ goToPantallaPrincipal, goBack, goToAgendar}) => 
 
     return (
         <View style={styles.container}>
-            <BlueContainer text="Veterinarias" onBackPress={goBack} showBackArrow={true} />
+            <BlueContainer text="Veterinarios" onBackPress={goBack} showBackArrow={true} />
             <View style={styles.container2}>
             <ScrollView>
                 {veterinarias.map((vet, index) => (
                     <TarjetaVet
                         key={index}
                         nombre={vet.nombre}
+                        especialidad={vet.especialidad}
                         horario={vet.horario}
+                        descripcion={vet.descripcion}
                         precio={vet.precio}
                         imagen={vet.imagen}
                         cantEstrellas={vet.cantEstrellas}
@@ -83,4 +93,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default PantallaVeterinarias;
+export default PantallaVeterinarios;

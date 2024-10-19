@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import Estrellas from '../atoms/RateEstrellas.jsx';
 import Boton from '../atoms/Boton.jsx';
 
-const TarjetaVeterinaria = ({ nombre, horario, precio, imagen, cantEstrellas, goToAgendar }) => {
+const TarjetaVeterinaria = ({ nombre, horario, especialidad, descripcion, precio, imagen, cantEstrellas, goToAgendar }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -16,13 +16,19 @@ const TarjetaVeterinaria = ({ nombre, horario, precio, imagen, cantEstrellas, go
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{nombre}</Text>
+        <Text style={styles.description}>{especialidad}</Text>
         <Text style={styles.description}>{horario}</Text>
+        <Text style={styles.description}>{descripcion}</Text>
         <Text style={styles.price}>{precio}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
         <Boton text="Comentarios" onPress={() => console.log('Ver reviews presionado')} style={styles.customButtonStyle} />
-        <Boton text="Agendar" onPress={goToAgendar} style={styles.customButtonStyle} />
+        <Boton 
+          text="Agendar" 
+          onPress={() => goToAgendar(nombre, precio, especialidad)} 
+          style={styles.customButtonStyle} 
+        />
       </View>
 
     </View>
