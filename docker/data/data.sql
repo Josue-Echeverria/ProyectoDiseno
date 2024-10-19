@@ -147,19 +147,19 @@ VALUES
 ('Duacarí', 82);
 
 
-INSERT INTO db1.dbo.direccion (idPais, idProvincia, idCanton, idDistrito) 
+INSERT INTO db1.dbo.direccion (idPais, idProvincia, idCanton, idDistrito, direccionExacta, posicion, codigoPostal) 
 VALUES 
-(1,7,78,8), 
-(1,7,78,5), 
-(1,7,78,7), 
-(1,7,78,12),
-(1,7,81,24),
-(1,7,82,25),
-(1,7,82,26),
-(1,7,82,27),
-(1,7,82,29),
-(1,7,80,19),
-(1,7,78,9);
+(1,7,78,8,'456 Avenida Central, Ciudad, País', geography::STPointFromText('POINT(-84.0750 9.8600)', 4326), '67890'), 
+(1,7,78,5,'1011 Boulevard Principal, Ciudad, País', geography::STPointFromText('POINT(-84.0772 9.8622)', 4326), '98765'), 
+(1,7,78,7,'1011 Boulevard Principal, Ciudad, País', geography::STPointFromText('POINT(-84.0772 9.8622)', 4326), '98765'), 
+(1,7,78,12,'1213 Calle Tercera, Ciudad, País', geography::STPointFromText('POINT(-84.0783 9.8633)', 4326), '11223'),
+(1,7,81,24,'1415 Avenida Cuarta, Ciudad, País', geography::STPointFromText('POINT(-84.0794 9.8644)', 4326), '33445'),
+(1,7,82,25,'1617 Calle Quinta, Ciudad, País', geography::STPointFromText('POINT(-84.0805 9.8655)', 4326), '55667'),
+(1,7,82,26,'1819 Avenida Sexta, Ciudad, País', geography::STPointFromText('POINT(-84.0816 9.8666)', 4326), '77889'),
+(1,7,82,27,'2021 Calle Séptima, Ciudad, País', geography::STPointFromText('POINT(-84.0827 9.8677)', 4326), '99001'),
+(1,7,82,29,'2223 Avenida Octava, Ciudad, País', geography::STPointFromText('POINT(-84.0838 9.8688)', 4326), '22334'),
+(1,7,80,19,'2425 Calle Novena, Ciudad, País', geography::STPointFromText('POINT(-84.0849 9.8699)', 4326), '44556'),
+(1,7,78,9,'2627 Avenida Décima, Ciudad, País', geography::STPointFromText('POINT(-84.0860 9.8700)', 4326), '66778');
 
 INSERT INTO [dbo].[usuario] ([nombre] ,[apellido] ,[correo] ,[telefono],[fechaNacimiento] ,[idDireccion])
      VALUES 
@@ -174,10 +174,10 @@ INSERT INTO [dbo].[usuario] ([nombre] ,[apellido] ,[correo] ,[telefono],[fechaNa
     ('Ricardo Esteban', 'Herrera Sanchez', 'ricardo.herrera@hotmail.com', '87654321', '1983-01-12', 9),
     ('Laura Patricia', 'Soto Jimenez', 'laura.soto@gmail.com', '89123456', '1996-04-28', 10),
     ('Manuel Antonio', 'Chacon Rivera', 'manuel.chacon@hotmail.com', '85236987', '1988-12-19', 11),
-    ('Diana Carolina', 'Gutierrez Porras', 'diana.gutierrez@gmail.com', '83456712', '1991-03-07', 12),
-    ('Alberto Javier', 'Mendez Ocampo', 'alberto.mendez@hotmail.com', '87765432', '1997-05-11', 13),
-    ('Karla Sofia', 'Zamora Muñoz', 'karla.zamora@yahoo.com', '82415673', '1993-11-17', 14),
-    ('Felipe Alejandro', 'Vega Rojas', 'felipe.vega@gmail.com', '81876543', '1990-09-09', 15)
+    ('Diana Carolina', 'Gutierrez Porras', 'diana.gutierrez@gmail.com', '83456712', '1991-03-07', 9),
+    ('Alberto Javier', 'Mendez Ocampo', 'alberto.mendez@hotmail.com', '87765432', '1997-05-11', 10),
+    ('Karla Sofia', 'Zamora Muñoz', 'karla.zamora@yahoo.com', '82415673', '1993-11-17', 4),
+    ('Felipe Alejandro', 'Vega Rojas', 'felipe.vega@gmail.com', '81876543', '1990-09-09', 6)
     ;
 
 
@@ -218,26 +218,26 @@ INSERT INTO dbo.especialidad (nombre)
     ('Oncología');
 
 
-INSERT INTO [dbo].[veterinario] ([idUsuario],[idEspecialidad],[numeroCuenta])
+INSERT INTO [dbo].[veterinario] ([idUsuario],[idEspecialidad],[numeroCuenta],[descripcion])
 VALUES
-    (10, 3, '372945106542397')
-    ,(11,1,'859321047586230')
-    ,(12,5,'193748520914567')
-    ,(13,4,'624850193267489')
-    ,(16,2,'285619740352816')
-    ,(17,2,'930514872630975')
-    ,(18,3,'741293086514720');
+    (1, 3, '372945106542397','Cuido a tus mascotas como parte de la familia.')
+    ,(2,5,'193748520914567','Tu mascota, mi compromiso.')
+    ,(3,4,'624850193267489','Experto en bienestar animal, con corazón.')
+    ,(4,2,'285619740352816','Donde cada vida peluda es mi prioridad.')
+    ,(5,2,'930514872630975','Cuidando a quienes más te importan.')
+    ,(6,3,'741293086514720','Tu mascota en las mejores manos.')
+    ,(7,1,'859321047586230','Salud y amor para tu mejor amigo.');
 
 
 INSERT INTO [dbo].[mascota] ([nombre],[fechaNacimiento],[idRaza],[idUsuario])
      VALUES
-		('Nala','2011-06-15',12,1),
-		('Max','2013-09-24',6,14),
-		('Luna','2015-02-08',7,15),
-		('Milo','2018-07-30',1,20),
-		('Simba','2020-11-19',3,21),
-		('Bella','2021-03-22',4,22),
-		('Rocky','2016-12-05',17,23),
-		('Coco','2023-01-17',15,24);
+		('Nala','2011-06-15',12,8),
+		('Max','2013-09-24',6,9),
+		('Luna','2015-02-08',7,10),
+		('Milo','2018-07-30',1,11),
+		('Simba','2020-11-19',3,12),
+		('Bella','2021-03-22',4,13),
+		('Rocky','2016-12-05',17,14),
+		('Coco','2023-01-17',15,15);
 
 
