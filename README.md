@@ -26,7 +26,8 @@ Prioridad 3
 
 ## Diagrama de bases de datos datos
 
-![image](https://github.com/user-attachments/assets/b396fc64-f512-456e-9f77-6b066af06710)
+![image](https://github.com/user-attachments/assets/10c4725b-a6b3-432a-a4f5-5f95eb937182)
+
 
 [Scripts para crear base de datos](data)
 
