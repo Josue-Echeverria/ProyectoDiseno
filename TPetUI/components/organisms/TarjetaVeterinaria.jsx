@@ -19,7 +19,7 @@ const TarjetaVeterinaria = ({ nombre, horario, especialidad, descripcion, precio
         <Text style={styles.description}>{especialidad}</Text>
         <Text style={styles.description}>{horario}</Text>
         <Text style={styles.description}>{descripcion}</Text>
-        <Text style={styles.price}>{precio}</Text>
+        <Text style={styles.price}>₡{precio}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
@@ -38,7 +38,7 @@ const TarjetaVeterinaria = ({ nombre, horario, especialidad, descripcion, precio
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#FFFFFF',
     borderRadius: 10,
     padding: 20,
     justifyContent: 'center',
@@ -60,15 +60,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: '#000000',
   },
   description: {
     fontSize: 14,
     textAlign: 'center',
+    
   },
   price: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#000000',
   },
   buttonContainer: {
     flexDirection: 'row', 

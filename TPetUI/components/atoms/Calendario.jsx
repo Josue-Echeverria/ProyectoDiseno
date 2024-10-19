@@ -1,26 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Calendar } from 'react-native-calendars';
 
-const Calendario = ({ onDayPress, selectedDay }) => {
-  // Marca el día seleccionado con un círculo azul
-  const markedDates = selectedDay
-    ? {
-        [selectedDay]: {
-          selected: true,
-          selectedColor: '#66AAFF', // Cambia el color a azul
-        },
-      }
-    : {};
+const Calendario = ({ onDayPress, selectedDay, appointmentsData }) => {
+  // Generar las fechas con citas disponibles (puntos grises)
+  const markedDates = Object.keys(appointmentsData).reduce((acc, date) => {
+    acc[date] = {
+      marked: true,
+      dotColor: 'gray', // Color gris para las fechas con citas disponibles
+    };
+    return acc;
+  }, {});
+
+  // Agregar el día seleccionado (círculo azul)
+  if (selectedDay) {
+    markedDates[selectedDay] = {
+      ...markedDates[selectedDay], // Mantener el punto gris si también tiene citas
+      selected: true,
+      selectedColor: '#66AAFF', // Círculo azul para el día seleccionado
+    };
+  }
 
   return (
     <Calendar
       onDayPress={onDayPress}
-      markedDates={markedDates} // Aplica los días marcados
+      markedDates={markedDates} // Aplicar las fechas marcadas
       style={{
-        borderWidth: 1,
+        borderWidth: 4,
         borderColor: 'gray',
         borderRadius: 10,
-        marginTop: 10,
+        marginTop: 7,
+        padding: -50,
+        
       }}
       theme={{
         todayTextColor: '#00adf5',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import NavBar from '../organisms/NavBar.jsx';
+import NavBar from '../molecules/NavBar.jsx';
 import BlueContainer from '../molecules/BlueContainer.jsx';
 import Calendario from '../atoms/Calendario.jsx';
 import Boton from '../atoms/Boton.jsx';
@@ -23,7 +23,7 @@ const PantallaAgendar = ({ goToPantallaPrincipal, goBack, nombre, precio, especi
     setSelectedDay(formattedDate);
 
     // Obtener las citas disponibles para el día seleccionado
-  const appointments = appointmentsData[formattedDate] || [];
+    const appointments = appointmentsData[formattedDate] || [];
     setAvailableAppointments(appointments);
     setSelectedAppointment(null); // Reiniciar la cita seleccionada cuando se selecciona un nuevo día
   };
@@ -60,14 +60,29 @@ const PantallaAgendar = ({ goToPantallaPrincipal, goBack, nombre, precio, especi
 
         <View style={styles.row}>
           <Text style={styles.title}>Precio de consulta: </Text>
-          <Text style={styles.infoText}>{precio}</Text>
+          <Text style={styles.infoText}>₡{precio}</Text>
+        </View>
+
+        {/* Mostrar el descuento y el precio total */}
+        <View style={styles.row}>
+          <Text style={styles.title}>Descuento aplicado: </Text>
+          <Text style={styles.infoText}>10%</Text>
+        </View>
+        
+        <View style={styles.row}>
+          <Text style={styles.title}>Precio total: </Text>
+          <Text style={styles.infoText}>₡{(precio * 0.9).toFixed(2)}</Text>
         </View>
       </View>
 
       {/* Contenedor desplazable para citas y calendario */}
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         {/* Calendario */}
-        <Calendario onDayPress={handleDayPress} selectedDay={selectedDay} />
+        <Calendario
+          onDayPress={handleDayPress}
+          selectedDay={selectedDay}
+          appointmentsData={appointmentsData} // Pasar las fechas con citas disponibles
+        />
 
         {/* Contenedor scrollable horizontal para las citas */}
         <View style={styles.appointmentsContainer}>
@@ -119,11 +134,17 @@ const PantallaAgendar = ({ goToPantallaPrincipal, goBack, nombre, precio, especi
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#0FA3B1',
   },
   vetInfoContainer: {
     marginTop: 80,
     marginBottom: 7,
-    paddingHorizontal: 20,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    marginLeft: 7,
+    paddingLeft: 10,
+    marginRight: 7,
+    paddingRight: 10,
   },
   row: {
     flexDirection: 'row',
@@ -133,23 +154,37 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: 'black',
   },
   infoText: {
     fontSize: 16,
     textAlign: 'right',
+    color: 'black',
   },
   appointmentsContainer: {
     flex: 1,
-    marginTop: 20,
-    paddingHorizontal: 20,
+    marginTop: 10,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    marginLeft: 7,
+    paddingLeft: 10,
+    marginRight: 7,
+    paddingRight: 10,
+    
   },
   appointmentsTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 0,
   },
   scrollViewContent: {
-    paddingBottom: 20, // Para que no se superponga el contenido
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    marginLeft: 7,
+    paddingLeft: 10,
+    marginRight: 7,
+    paddingRight: 10,
+    marginBottom: 5,
   },
   appointmentsRow: {
     flexDirection: 'row',
@@ -160,21 +195,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 10,
     padding: 10,
-    backgroundColor: '#e0e0e0', // Fondo gris por defecto
+    backgroundColor: '#e0e0e0',
     borderRadius: 8,
     width: 100,
   },
   selectedAppointmentContainer: {
-    backgroundColor: '#66AAFF', // Cambiar el fondo a celeste cuando está seleccionada
+    backgroundColor: '#66AAFF',
   },
   appointment: {
     fontSize: 16,
-  },
-  selectedAppointmentText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 20,
-    textAlign: 'center',
   },
   noAppointmentsText: {
     fontSize: 16,
@@ -182,8 +211,9 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   confirmButtonContainer: {
-    marginTop: 8, 
-    paddingHorizontal: 105,
+    marginTop: 0, 
+    paddingHorizontal: 87,
+    marginBottom: 12,
   },
 });
 

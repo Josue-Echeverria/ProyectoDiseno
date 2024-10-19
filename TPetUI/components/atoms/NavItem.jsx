@@ -1,10 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-const NavItem = ({ text, onPress }) => {
+const NavItem = ({ icono, onPress }) => {
   return (
     <TouchableOpacity style={styles.navItem} onPress={onPress}>
-      <Text style={styles.text}>{text}</Text>
+      <Image source={icono} style={styles.icon} />
     </TouchableOpacity>
   );
 };
@@ -15,10 +15,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
-  text: {
-    color: 'black',
-    marginLeft: 5,
-    fontSize: 16,
+  icon: {
+    width: 30,
+    height: 30,
   },
 });
 

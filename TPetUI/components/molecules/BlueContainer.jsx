@@ -17,7 +17,7 @@ const BlueContainer = ({ text, onBackPress, showBackArrow = true }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#66AAFF',
+    backgroundColor: '#FFFFFF',
     padding: 20,
     width: '100%',
     position: 'absolute',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: '#FFFFFF',
+    color: '#000000',
     fontSize: 22,
     fontWeight: 'bold',
     marginLeft: 20,

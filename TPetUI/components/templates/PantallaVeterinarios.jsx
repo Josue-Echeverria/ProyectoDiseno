@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, FlatList } from 'react-native';
-import NavBar from '../organisms/NavBar.jsx';
+import NavBar from '../molecules/NavBar.jsx';
 import TarjetaVet from '../organisms/TarjetaVeterinaria.jsx';
-import imagen1 from '../assets/LogoVetDefault.jpg';
+import imagen1 from '../assets/LogoVetDefault.png';
 import BlueContainer from '../molecules/BlueContainer.jsx';
 
 const PantallaVeterinarios = ({ goToPantallaPrincipal, goBack, goToAgendar}) => {
@@ -14,7 +14,7 @@ const PantallaVeterinarios = ({ goToPantallaPrincipal, goBack, goToAgendar}) => 
             horario: 'L-V 8:00am - 5:00pm',
             especialidad: 'Cirujano',
             descripcion: 'Especialista en cirugías de alta complejidad.',
-            precio:  '₡20000',
+            precio:  20000,
             imagen: imagen1,
             cantEstrellas: 4
         },
@@ -23,7 +23,7 @@ const PantallaVeterinarios = ({ goToPantallaPrincipal, goBack, goToAgendar}) => 
             horario: 'L-D 24/7',
             especialidad: 'Animales Exóticos',
             descripcion: 'Especialista en animales exóticos y silvestres.',
-            precio:  '₡15000',
+            precio:  15000,
             imagen: imagen1,
             cantEstrellas: 3
         },
@@ -32,7 +32,7 @@ const PantallaVeterinarios = ({ goToPantallaPrincipal, goBack, goToAgendar}) => 
             horario: 'L-S 3:00pm - 7:00pm',
             especialidad: 'Análisis Clínico',
             descripcion: 'Especialista en análisis clínicos y diagnósticos.',
-            precio:  '₡25000',
+            precio:  25000,
             imagen: imagen1,
             cantEstrellas: 5
         },
@@ -41,7 +41,7 @@ const PantallaVeterinarios = ({ goToPantallaPrincipal, goBack, goToAgendar}) => 
             horario: 'L-V 7:00am - 5:00pm',
             especialidad: 'Medicina General',
             descripcion: 'Especialista en medicina general y preventiva.',
-            precio:  '₡25000',
+            precio:  25000,
             imagen: imagen1,
             cantEstrellas: 5
         }
@@ -75,21 +75,14 @@ const PantallaVeterinarios = ({ goToPantallaPrincipal, goBack, goToAgendar}) => 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#0FA3B1',
     },
     container2: {
         flex: 1,
         justifyContent: 'center', 
         paddingTop: 80,
         paddingBottom: 70, 
-    },
-    navbar: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        backgroundColor: '#007BFF',
-        padding: 10,
-        position: 'absolute',  
-        bottom: 0,             
-        width: '100%',        
+        
     },
 });
 

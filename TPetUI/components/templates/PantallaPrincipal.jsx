@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import NavBar from '../organisms/NavBar.jsx';
+import NavBar from '../molecules/NavBar.jsx';
 import Boton from '../atoms/Boton.jsx';
-import agenda from '../assets/Agendar.jpg';  // Importa la imagen
-import citas from '../assets/MisCitas.jpg';  // Importa la imagen
+import agenda from '../assets/Agendar.jpg';  
+import citas from '../assets/MisCitas.jpg'; 
 import BlueContainer from '../molecules/BlueContainer.jsx';
+import DiscountModal from '../molecules/NotificacionDescuento.jsx';
 
 const PantallaPrincipal = ({ goToVeterinarias, goToAgendar, goToPantallaPrincipal }) => {
+
+  const [modalVisible, setModalVisible] = useState(true);
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <BlueContainer text="TPet" showBackArrow={false} />
@@ -24,6 +32,7 @@ const PantallaPrincipal = ({ goToVeterinarias, goToAgendar, goToPantallaPrincipa
       </View>
 
       <NavBar goToPantallaPrincipal={goToPantallaPrincipal} />
+      <DiscountModal visible={modalVisible} onClose={closeModal} />
     </View>
   );
 };
@@ -31,7 +40,8 @@ const PantallaPrincipal = ({ goToVeterinarias, goToAgendar, goToPantallaPrincipa
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center', // Centra los elementos verticalmente
+    justifyContent: 'center', 
+    backgroundColor: '#0FA3B1',
   },
   navbar: {
     flexDirection: 'row',
@@ -43,9 +53,15 @@ const styles = StyleSheet.create({
     width: '100%',        
   },
   imageButtonContainer: {
-    alignItems: 'center', 
-    marginBottom: 70, 
-    marginTop: 30,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    padding: 20,
+    justifyContent: 'center',
+    width: '70%',
+    marginBottom: 20, // Separación entre tarjetas
+    alignItems: 'center',
+    marginLeft: '15%',
+     
   },
   image: {
     width: 100,
