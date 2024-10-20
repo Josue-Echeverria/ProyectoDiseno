@@ -237,17 +237,24 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
    - ¿Qué debe suceder?
      En esta pantalla se debe mostrar la presentación de los veterinarios, que permite ver los datos como el nombre y fotografía, la especialidad, el horario disponible, la descripción del veterinario y el precio que tiene su consulta. Además, se debe de mostrar los rates que se le han sido proporcionado por otros usuarios después de recibir su cita. Finalmente, se tiene que mostrar un aviso de descuento en la primera cita para promover al usuario de agendar esta. La barra de navegación y el encabezado forman parte de todas las pantallas, por lo que de igual manera se encuentran presentes.
    - ¿Qué acciones se pueden realizar?
+
      **Oprimir el botón de agendar y ver reviews:** Estas acciones promueven a que el proceso de agendar una cita sea mucho más veloz para que el usuario no descarte la idea de agendar por culpa de la nevgación entre pantallas.
+
      **Escoger un veterinario:** A la par de las tarjetas de presentación del veterinario se muestran flechas, que permiten cambiar el veterinario seleccionado. Esto para que el usuario pueda escoger al veterinario que mayor se acomode a sus necesidades.
+     
 ![image](https://github.com/user-attachments/assets/deb69547-3c9a-489a-b028-f6bceea3c611)
 
 2) Pantalla Reviews
   - ¿Qué debe suceder?
      En esta pantalla se debe mostrar la presentación de los veterinarios, que permite ver los datos como el nombre y fotografía, la especialidad y la descripción del veterinario del veterinario seleccionado en la pantalla principal. Además, se debe de mostrar los rates que se le han sido proporcionado por otros usuarios después de recibir su cita. Estos incluyen el nombre y fotografía del usuario, la cantidad de estrellas que el usuario le asigno al veterinario y finalmente, un comentario hacia el veterinario. La barra de navegación y el encabezado forman parte de todas las pantallas, por lo que de igual manera se encuentran presentes.
    - ¿Qué acciones se pueden realizar?
+     
      **Oprimir el botón de agendar:** Este botón permite al usuario agendar una cita con el veterinario sin necesidad de volver a la pantalla principal. De este modo, elimina pasos innecesarios sobre el proceso de agendar una cita.
+
      **Regresar a la pantalla principal:** Esta acción se encuentra disponible tanto en el encabezado como en la barra de navegación. Si el usuario, tras leer los reviews no desea agendar con ese veterinario, se le brinda la opción de retornar a la pantalla principal para que pueda escoger otro veterinario para su cita.
+
      **Scroll de comentarios:** Debido a que pueden existir más reviews de los que se pueden visualizar en una pantalla, el usuario puede realizar scroll en la sección donde se encuentran. Lo que le permite leer más comentarios y asegurar su decisión de agendar la cita.
+     
 ![image](https://github.com/user-attachments/assets/ae904c7b-18d8-4670-a214-2463351c9617)
 
      
@@ -255,13 +262,21 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
   - ¿Qué debe suceder?
      En esta pantalla se debe mostrar los datos importantes para la agendación de la cita. Estos son el nombre del veterinario seleccionado, su especialidad, el precio de la consulta, el procentaje de descuento y finalmente el precio final (precio de la consulta con el descuento aplicado). Debajo de esto se debe mostrar el calendario. Este indica los dias del mes y bajo estos se muestra un punto gris indicando si hay citas disponibles en la fecha. Antes de seleccionar un día del mes, se le pondra un mensaje al usuario solicitando hacerlo. Tras seleccionar un día, este indica las horas de citas disponibles, en caso de no haberlas mostrará un mensaje indicándolo. Al seleccionar una hora de una cita y confirmar la cita, aparecerá una ventana de aviso que le indica al usuario que la cita cone le veterinario ha sido agendada en la fecha y la hora seleccionada. La barra de navegación y el encabezado forman parte de todas las pantallas, por lo que de igual manera se encuentran presentes.
    - ¿Qué acciones se pueden realizar?
+
      **Moverse entre meses dentro del calendario:** Esta acción pertenece a las flechas dentro del calendario adjuntas a la par del nombre del mes. Estas permiten cambiar al mes anterior o posterior del presentado inicialmente.
+
      **Seleccionar una fecha dentro del calendario:** Esta acción se realiza presionado un día dentro del mes del calendario, permite al usuario ver las citas disponibles dentro del día seleccionado. Para evitar confusiones, el día seleccionado es resaltado por un círculo azul.
+
      **Scroll de las citas disponibles:** Tras seleccionar un día con citas disponibles, se presentarán las horas de las citas. Estas tiene la posibilidad de ser desplazadas hacia la derecha por medio del Scroll, así permitiendo ver todas las citas dentro de el día.
+
      **Seleccionar una de las citas disponibles:** Al desplegarse las citas el usuario tiene la opción de selecionar una de las horas, esta se marcará de azul para darle una confirmación al usuario de que se seleccióno la cita.
+
      **Oprimir botón de confirmar la cita:** Como se indica tras estripar este botón se confirmará la cita, lo cual desplegará un mensaje de aviso de que la cita fue agendada.
+
      **Oprimir botón de aceptación de alerta:** La alerta trae un botón de aceptar, una vez que el usuario haya leido la alerta y lo presione, este llevará al usuario de regreso a la pantalla principal.
+
      **Regresar a la pantalla principal:** Esta acción se encuentra disponible tanto en el encabezado como en la barra de navegación.
+     
 ![image](https://github.com/user-attachments/assets/3a32ace4-8c31-4a5b-879e-e6e007a7e638)
 ![image](https://github.com/user-attachments/assets/1aae1a5e-cc26-46b4-80a3-44048516500a)
 ![image](https://github.com/user-attachments/assets/cd52662e-f994-477c-bdad-ebdd53b7d14d)
