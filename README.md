@@ -206,4 +206,28 @@ El sistema requiere de la siguiente documentación:
 
 La documentación debe estar almacenada en un repositorio de 'GitHub' y actualizada automáticamente cada vez que se realicen cambios importantes en la arquitectura del sistema. Además se debe realizar una revisión de la documentación cada 6 meses.
 
+# Diseño del Frontend
+
+## UI
+
+### Requerimientos Funcionales VS. Componentes Visuales
+
+| **Requerimientos Funcionales**                                | **Calendario** | **Botón** | **Tarjeta Veterinaria** | **Reviews** | **NavBar** | **Descuento Info** | **RatingBar** | **BlueContainer** | **Nav Item** | **Rate Estrellas** |
+|---------------------------------------------------------------|----------------|-----------|------------------------|-------------|------------|--------------------|---------------|-------------------|-------------|--------------------|
+| Mostrar información del veterinario                           |                |           | ✓                      |             |            |                    |               | ✓                 |             |                    |
+| Mostrar especialidad del veterinario                          |                |           | ✓                      |             |            |                    |               | ✓                 |             |                    |
+| Mostrar precio de la consulta                                 |                |           | ✓                      |             |            |                    |               |                   |             |                    |
+| Mostrar descripción del veterinario                           |                |           | ✓                      |             |            |                    |               | ✓                 |             |                    |
+| Calcular y mostrar precio con descuento                       |                |           | ✓                      |             |            | ✓                  |               |                   |             |                    |
+| Seleccionar día para agendar cita                             | ✓              |           |                        |             |            |                    |               |                   |             |                    |
+| Mostrar citas disponibles para el día seleccionado            |                |           |                        |             |            |                    |               |                   |             |                    |
+| Seleccionar hora de la cita                                   | ✓              |           |                        |             |            |                    |               |                   |             |                    |
+| Confirmar la cita                                             |                | ✓         |                        |             |            |                    |               |                   |             |                    |
+| Mostrar reseñas de otros usuarios                             |                |           |                        | ✓           |            |                    |               |                   |             |                    |
+| Mostrar rating de los veterinarios                            |                |           | ✓                      | ✓           |            |                    | ✓             |                   |             | ✓                  |
+| Mostrar botón para regresar a la pantalla principal           |                |           |                        |             | ✓          |                    |               | ✓                 | ✓           |                    |
+| Mostrar componente de navegación                              |                |           |                        |             | ✓          |                    |               |                   | ✓           |                    |
+| Mostrar botón "Agenda tu cita"                                |                | ✓         | ✓                      |             |            |                    |               |                   |             |                    |
+| Mostrar información del descuento                             |                |           | ✓                      |             |            | ✓                  |               |                   |             |                    |
+| Mostrar botón "Ver Reviews"                                   |                | ✓         | ✓                      |             |            |                    |               |                   |             |                    |
 
