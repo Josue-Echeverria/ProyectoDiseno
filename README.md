@@ -27,9 +27,18 @@ Prioridad 3
 ## Diagrama de bases de datos datos
 
 ![image](https://github.com/user-attachments/assets/f946ee1e-ca2f-4a18-a91e-8eaf75d4e452)
-![image](https://github.com/user-attachments/assets/8a1ea954-8ad1-4fb5-bb57-b1ed8de42e88)
 
 [Scripts para crear base de datos](data)
+
+### Puntos a recordar:
+* Para la gestion de pagos de citas se guarda el checkout id en la tabla cita que es el que retorna shopify una vez que se va realizar un pago, siempre es de 32 caracteres
+https://shopify.dev/docs/api/admin-rest/2024-01/resources/checkout#post-checkouts
+
+
+* Para las notificaciones, solo se guarda un log de fechas de creacion, envio y programacion. Recordemos que esta parte es controlada por medio de AQS y Azure functions. El idReceptor puede ser nulo para aquellas notificaciones que deben de ser enviadas a todos los usuarios.
+![image](https://github.com/user-attachments/assets/8a1ea954-8ad1-4fb5-bb57-b1ed8de42e88)
+
+
 
 ## Problem Statement y Storyboard
 Convencer al dueño de la mascota de agendar una cita veterinaria virtual.
