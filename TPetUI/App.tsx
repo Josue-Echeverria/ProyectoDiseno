@@ -1,41 +1,58 @@
 import React, { useState } from 'react';
 import PantallaPrincipal from './components/templates/PantallaPrincipal.jsx';
-import PantallaVeterinarias from './components/templates/PantallaVeterinarios.jsx'; 
 import PantallaAgendar from './components/templates/PantallaAgendar.jsx';
+import PantallaReviews from './components/templates/PantallaReviews.jsx';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('PantallaPrincipal');
-  const [veterinarioSeleccionado, setVeterinarioSeleccionado] = useState({ nombre: '', precio: '', especialidad: ''});
+  
+  // Añadido cantEstrellas para pasarlo también
+  const [veterinarioSeleccionado, setVeterinarioSeleccionado] = useState({
+    nombre: '',
+    precio: '',
+    especialidad: '',
+    descripcion: '',
+    cantEstrellas: 0,  // Añadido para manejar la calificación
+  });
 
   // Función para renderizar la pantalla actual basada en el estado
   const renderScreen = () => {
     if (currentScreen === 'PantallaPrincipal') {
       return (
         <PantallaPrincipal
-          goToVeterinarias={() => setCurrentScreen('PantallaVeterinarias')}
-          goToAgendar={() => setCurrentScreen('PantallaAgendar')}
           goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')} 
-        />
-      );
-    } else if (currentScreen === 'PantallaVeterinarias') {
-      return (
-        <PantallaVeterinarias
-          goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')}
-          goBack={() => setCurrentScreen('PantallaPrincipal')}
-          goToAgendar={(nombre: string, precio: string, especialidad: string) => {
-            setVeterinarioSeleccionado({ nombre, precio, especialidad });
+          goToAgendar={(nombre: string, precio: string, especialidad: string, descripcion: string, cantEstrellas: number) => {
+            // Incluyendo cantEstrellas en el estado seleccionado
+            setVeterinarioSeleccionado({ nombre, precio, especialidad, descripcion, cantEstrellas });
             setCurrentScreen('PantallaAgendar');
+          }}
+          goToReviews={(nombre: string, precio: string, especialidad: string, descripcion: string, cantEstrellas: number) => {
+            // Incluyendo cantEstrellas en el estado seleccionado
+            setVeterinarioSeleccionado({ nombre, precio, especialidad, descripcion, cantEstrellas });
+            setCurrentScreen('PantallaReviews');
           }}
         />
       );
     } else if (currentScreen === 'PantallaAgendar') {
       return (
         <PantallaAgendar
-          goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')} 
-          goBack={() => setCurrentScreen('PantallaVeterinarias')}
+          goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')}
+          goToAgendar={() => setCurrentScreen('PantallaAgendar')}
           nombre={veterinarioSeleccionado.nombre}
           precio={veterinarioSeleccionado.precio}
           especialidad={veterinarioSeleccionado.especialidad}
+        />
+      );
+    } else if (currentScreen === 'PantallaReviews') {
+      return (
+        <PantallaReviews
+          goBack={() => setCurrentScreen('PantallaPrincipal')}
+          goToAgendar={() => setCurrentScreen('PantallaAgendar')}
+          nombre={veterinarioSeleccionado.nombre}
+          precio={veterinarioSeleccionado.precio}
+          especialidad={veterinarioSeleccionado.especialidad}
+          descripcion={veterinarioSeleccionado.descripcion}
+          cantEstrellas={veterinarioSeleccionado.cantEstrellas}
         />
       );
     }

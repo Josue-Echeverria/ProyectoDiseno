@@ -5,7 +5,7 @@ import BlueContainer from '../molecules/BlueContainer.jsx';
 import Calendario from '../atoms/Calendario.jsx';
 import Boton from '../atoms/Boton.jsx';
 
-const PantallaAgendar = ({ goToPantallaPrincipal, goBack, nombre, precio, especialidad }) => {
+const PantallaAgendar = ({ goToPantallaPrincipal, goToAgendar, nombre, especialidad, precio }) => {
   const [selectedDay, setSelectedDay] = useState(null); // Estado para el día seleccionado
   const [availableAppointments, setAvailableAppointments] = useState([]);
   const [selectedAppointment, setSelectedAppointment] = useState(null); // Estado para la cita seleccionada
@@ -45,7 +45,7 @@ const PantallaAgendar = ({ goToPantallaPrincipal, goBack, nombre, precio, especi
 
   return (
     <View style={styles.container}>
-      <BlueContainer text="Agendar" onBackPress={goBack} showBackArrow={true} />
+      <BlueContainer text="Agendar" onBackPress={goToPantallaPrincipal} showBackArrow={true} />
 
       <View style={styles.vetInfoContainer}>
         <View style={styles.row}>

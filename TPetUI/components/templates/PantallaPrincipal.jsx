@@ -1,38 +1,113 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import NavBar from '../molecules/NavBar.jsx';
 import Boton from '../atoms/Boton.jsx';
-import agenda from '../assets/Agendar.jpg';  
-import citas from '../assets/MisCitas.jpg'; 
+import TarjetaVet from '../organisms/TarjetaVeterinaria.jsx';
+import imagen1 from '../assets/LogoVetDefault.png';  
 import BlueContainer from '../molecules/BlueContainer.jsx';
-import DiscountModal from '../molecules/NotificacionDescuento.jsx';
+import DescuentoInfo from '../molecules/ContainerDescuento.jsx';
+import RatingBar from '../molecules/RatingBar.jsx';
 
-const PantallaPrincipal = ({ goToVeterinarias, goToAgendar, goToPantallaPrincipal }) => {
+const PantallaPrincipal = ({ goToPantallaPrincipal, goToAgendar, goToReviews }) => {
 
   const [modalVisible, setModalVisible] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);  // Estado para controlar la tarjeta actual
+
+  const veterinarias = [ //simulación de datos del backend
+    {   
+        nombre: 'Josue Echeverría',
+        horario: 'L-V 8:00am - 5:00pm',
+        especialidad: 'Cirujano',
+        descripcion: 'Especialista en cirugías de alta complejidad.',
+        precio:  20000,
+        imagen: imagen1,
+        cantEstrellas: 4
+    },
+    {
+        nombre: 'Harlen Quirós',
+        horario: 'L-D 24/7',
+        especialidad: 'Animales Exóticos',
+        descripcion: 'Especialista en animales exóticos y silvestres.',
+        precio:  15000,
+        imagen: imagen1,
+        cantEstrellas: 3
+    },
+    {
+        nombre: 'Luany Masís',
+        horario: 'L-S 3:00pm - 7:00pm',
+        especialidad: 'Análisis Clínico',
+        descripcion: 'Especialista en análisis clínicos y diagnósticos.',
+        precio:  25000,
+        imagen: imagen1,
+        cantEstrellas: 5
+    },
+    {
+        nombre: 'Rodrigo Nuñez',
+        horario: 'L-V 7:00am - 5:00pm',
+        especialidad: 'Medicina General',
+        descripcion: 'Especialista en medicina general y preventiva.',
+        precio:  25000,
+        imagen: imagen1,
+        cantEstrellas: 5
+    }
+  ];
 
   const closeModal = () => {
     setModalVisible(false);
   };
 
+  // Función para avanzar a la siguiente tarjeta
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % veterinarias.length);
+  };
+
+  // Función para retroceder a la tarjeta anterior
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + veterinarias.length) % veterinarias.length);
+  };
+  
   return (
     <View style={styles.container}>
       <BlueContainer text="TPet" showBackArrow={false} />
 
-      {/* Contenedor para la primera imagen y botón */}
-      <View style={styles.imageButtonContainer}>
-        <Image source={agenda} style={styles.image} />
-        <Boton text="Agenda una Cita" onPress={goToVeterinarias} style={styles.customButtonStyle}/>
+      {/* Mostrar tarjeta de veterinario actual */}
+      <View style={styles.vetCardContainer}>
+        <TouchableOpacity onPress={handlePrev} style={styles.arrowButton}>
+          <Text style={styles.arrowText}>{'<'}</Text>
+        </TouchableOpacity>
+
+        <TarjetaVet
+          nombre={veterinarias[currentIndex].nombre}
+          especialidad={veterinarias[currentIndex].especialidad}
+          horario={veterinarias[currentIndex].horario}
+          descripcion={veterinarias[currentIndex].descripcion}
+          precio={veterinarias[currentIndex].precio}
+          imagen={veterinarias[currentIndex].imagen}
+          cantEstrellas={veterinarias[currentIndex].cantEstrellas}
+          goToAgendar={goToAgendar}
+        />
+
+        <TouchableOpacity onPress={handleNext} style={styles.arrowButton}>
+          <Text style={styles.arrowText}>{'>'}</Text>
+        </TouchableOpacity>
       </View>
 
-      {/* Contenedor para la segunda imagen y botón */}
-      <View style={styles.imageButtonContainer}>
-        <Image source={citas} style={styles.image} />
-        <Boton text="Tus Citas" onPress={goToAgendar} style={styles.customButtonStyle}/>
+      <View style={styles.containerRate}>
+        <RatingBar
+          totalReviews={3654252}
+          ratingsDistribution={[0.7, 0.2, 0.05, 0.03, 0.02]} 
+          goToReviews={goToReviews}
+          goToAgendar={goToAgendar}
+          goback={goToPantallaPrincipal}
+          cantEstrellas={veterinarias[currentIndex].cantEstrellas}
+          nombre={veterinarias[currentIndex].nombre}
+          especialidad={veterinarias[currentIndex].especialidad}
+          descripcion={veterinarias[currentIndex].descripcion}
+        />
       </View>
 
+      <DescuentoInfo goToReviews={goToReviews}/>
       <NavBar goToPantallaPrincipal={goToPantallaPrincipal} />
-      <DiscountModal visible={modalVisible} onClose={closeModal} />
     </View>
   );
 };
@@ -40,37 +115,32 @@ const PantallaPrincipal = ({ goToVeterinarias, goToAgendar, goToPantallaPrincipa
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center', 
     backgroundColor: '#0FA3B1',
-  },
-  navbar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#007BFF',
-    padding: 10,
-    position: 'absolute',  
-    bottom: 0,             
-    width: '100%',        
-  },
-  imageButtonContainer: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    padding: 20,
     justifyContent: 'center',
-    width: '70%',
-    marginBottom: 20, // Separación entre tarjetas
+  },
+  containerRate: {
+    backgroundColor: '#FFFFFF',
+    top: 340,
+  },
+  vetCardContainer: {
+    backgroundColor: '#FFFFFF',
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: '15%',
-     
+    paddingHorizontal: 50,
+    marginTop: 100,
+    marginBottom: 170,
+    marginLeft: 20,
+    marginRight: 20,
+    flex: 1,
+    borderRadius: 15,
   },
-  image: {
-    width: 100,
-    height: 100,
-    marginBottom: 10, // Espacio entre la imagen y el botón
+  arrowButton: {
+    padding: 5,
   },
-  customButtonStyle: {
-    padding: 20,
-    width: 200,
+  arrowText: {
+    fontSize: 24,
+    color: '#000000',
   },
 });
 
