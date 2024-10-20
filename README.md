@@ -291,5 +291,11 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
 ![image](https://github.com/user-attachments/assets/1aae1a5e-cc26-46b4-80a3-44048516500a)
 ![image](https://github.com/user-attachments/assets/cd52662e-f994-477c-bdad-ebdd53b7d14d)
 
+## Diagrama de Capas
+![Diagrama de capas](https://github.com/user-attachments/assets/1cef0aad-5bb0-4c98-b128-8ae6aa6955d2)
 
+## Diagrama de Clases
+![Diagrama de Clases (1)](https://github.com/user-attachments/assets/ee85b31e-6352-4c84-99ff-05d7b8dd43c6)
+
+## Boilerplate
 
