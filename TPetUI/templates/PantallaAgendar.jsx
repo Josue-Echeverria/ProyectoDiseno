@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import NavBar from '../molecules/NavBar.jsx';
-import BlueContainer from '../molecules/BlueContainer.jsx';
-import Calendario from '../atoms/Calendario.jsx';
-import Boton from '../atoms/Boton.jsx';
+import NavBar from '../components/molecules/NavBar.jsx';
+import BlueContainer from '../components/molecules/BlueContainer.jsx';
+import Calendario from '../components/atoms/Calendario.jsx';
+import Boton from '../components/atoms/Boton.jsx';
 
 const PantallaAgendar = ({ goToPantallaPrincipal, goToAgendar, nombre, especialidad, precio }) => {
   const [selectedDay, setSelectedDay] = useState(null); // Estado para el día seleccionado

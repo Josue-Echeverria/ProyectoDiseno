@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import NavBar from '../molecules/NavBar.jsx';
-import Boton from '../atoms/Boton.jsx';
-import TarjetaVet from '../organisms/TarjetaVeterinaria.jsx';
+import NavBar from '../components/molecules/NavBar.jsx';
+import Boton from '../components/atoms/Boton.jsx';
+import TarjetaVet from '../components/organisms/TarjetaVeterinaria.jsx';
 import imagen1 from '../assets/LogoVetDefault.png';  
-import BlueContainer from '../molecules/BlueContainer.jsx';
-import DescuentoInfo from '../molecules/ContainerDescuento.jsx';
-import RatingBar from '../molecules/RatingBar.jsx';
+import BlueContainer from '../components/molecules/BlueContainer.jsx';
+import DescuentoInfo from '../components/molecules/ContainerDescuento.jsx';
+import RatingBar from '../components/molecules/RatingBar.jsx';
 
 const PantallaPrincipal = ({ goToPantallaPrincipal, goToAgendar, goToReviews }) => {
 
@@ -101,6 +101,7 @@ const PantallaPrincipal = ({ goToPantallaPrincipal, goToAgendar, goToReviews }) 
           goback={goToPantallaPrincipal}
           cantEstrellas={veterinarias[currentIndex].cantEstrellas}
           nombre={veterinarias[currentIndex].nombre}
+          precio={veterinarias[currentIndex].precio}  
           especialidad={veterinarias[currentIndex].especialidad}
           descripcion={veterinarias[currentIndex].descripcion}
         />

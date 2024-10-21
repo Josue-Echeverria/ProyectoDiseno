@@ -1,3 +1,72 @@
+# BoilerPlate 
+
+### **Carpeta __tests__**:
+
+- **App.test.tsx**: Contiene las pruebas unitarias para la aplicación. Aquí es donde se escriben las pruebas para tus componentes (como el renderizado e interacción) utilizando Jest.
+
+### **Carpeta .bundle**:
+
+- **config**: Almacena archivos de configuración necesarios para empaquetar la aplicación. Esto incluye configuraciones relacionadas con la construcción para garantizar un correcto empaquetado para su despliegue.
+
+### **Carpeta .expo**:
+
+- **README.md**: Contiene información relacionada con la configuración de Expo para la app.
+- **settings.json**: Archivo de configuración de Expo, que gestiona configuraciones como el ID del proyecto, variables de entorno y configuraciones específicas para el servidor de desarrollo.
+
+### **Carpeta .vscode**:
+
+- **react**: Configuración relacionada con el uso de React dentro del editor de VS Code. Puede incluir configuraciones del editor para mejorar la experiencia de desarrollo.
+
+### **Carpeta android**:
+
+Contiene todos los archivos necesarios para construir y ejecutar la aplicación en dispositivos Android. Esto incluye configuraciones de Gradle y archivos del proyecto Android.
+
+- **build.gradle**: Un archivo de configuración que gestiona las dependencias y configuraciones de compilación para la plataforma Android.
+- **gradlew/gradlew.bat**: Estos archivos son scripts que gestionan el sistema de compilación Gradle para entornos Unix y Windows.
+- **settings.gradle**: Configura los ajustes de Gradle para el proyecto Android.
+
+### **Carpeta assets**:
+
+Contiene los activos estáticos del proyecto, como imágenes e íconos (por ejemplo, **Agendar.jpg**, **mascotas.png**, **LogoVetDefault.png**). Estos se utilizan en toda la aplicación para el renderizado de la interfaz de usuario.
+
+### **Carpeta components**:
+
+#### Carpeta **atoms**: Contiene pequeños componentes reutilizables que son los bloques básicos en el diseño atómico.
+
+- **Boton.jsx**: Un componente de botón para uso general en toda la app.
+- **Calendario.jsx**: Componente utilizado para renderizar un calendario para programar citas.
+- **RateEstrellas.jsx**: Componente para renderizar un sistema de calificación con estrellas.
+- **NavItem.jsx**: Un componente que representa un elemento de navegación para la aplicación.
+
+#### Carpeta **molecules**: Componentes que están formados por átomos y representan elementos de UI más complejos.
+
+- **BlueContainer.jsx**: Un componente de contenedor utilizado para agrupar contenido con un fondo azul y una flecha opcional para volver.
+- **NavBar.jsx**: Un componente de barra de navegación en la parte superior de las pantallas.
+- **RatingBar.jsx**: Utilizado para mostrar calificaciones en formato de barra.
+- **ContainerDescuento.jsx**: Componente que muestra información sobre descuentos.
+
+#### Carpeta **organisms**: Organismos son secciones más grandes de la interfaz de usuario compuestas por átomos y moléculas.
+
+- **Reviews.jsx**: Muestra una lista de reseñas para servicios veterinarios.
+- **TarjetaVeterinaria.jsx**: Una tarjeta detallada que muestra información sobre veterinarios, su horario y especialidades.
+
+### **Carpeta ios**:
+
+Contiene la configuración y los archivos del proyecto para ejecutar la aplicación en iOS. Similar a la carpeta android, pero adaptada para el desarrollo en iOS con Xcode y CocoaPods.
+
+### **Carpeta node_modules**:
+
+Contiene todas las dependencias y paquetes del proyecto instalados a través de npm o yarn. Estos son necesarios para ejecutar y construir el proyecto.
+
+### **Carpeta templates**:
+
+Contiene las plantillas principales de las pantallas utilizadas en la aplicación.
+
+- **PantallaAgendar.jsx**: La pantalla de programación donde los usuarios pueden reservar citas.
+- **PantallaPrincipal.jsx**: La pantalla principal de la aplicación que muestra los servicios clave u opciones.
+- **PantallaReviews.jsx**: Una pantalla dedicada a mostrar las reseñas de los usuarios para los servicios.
+
+# Instrucciones default para correr el proyecto
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started

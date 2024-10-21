@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import BlueContainer from '../molecules/BlueContainer.jsx';
-import NavBar from '../molecules/NavBar.jsx';
-import Reviews from '../organisms/Reviews.jsx';
-import TarjetaVet from '../organisms/TarjetaVeterinaria.jsx';
+import BlueContainer from '../components/molecules/BlueContainer.jsx';
+import NavBar from '../components/molecules/NavBar.jsx';
+import Reviews from '../components/organisms/Reviews.jsx';
+import TarjetaVet from '../components/organisms/TarjetaVeterinaria.jsx';
 import imagen1 from '../assets/LogoVetDefault.png';
 
 const PantallaReviews = ({ goBack, goToAgendar, nombre, precio, especialidad, descripcion, cantEstrellas }) => {
@@ -36,7 +36,7 @@ const PantallaReviews = ({ goBack, goToAgendar, nombre, precio, especialidad, de
                     rating={cantEstrellas}
                     descripcion={descripcion}         
                     imagen={imagen1}     
-                    precio={precio}  
+                    //precio={precio}  
                     goToAgendar={goToAgendar} // Pasamos el precio al agendar sin mostrarlo
                     
                 />

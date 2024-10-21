@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PantallaPrincipal from './components/templates/PantallaPrincipal.jsx';
-import PantallaAgendar from './components/templates/PantallaAgendar.jsx';
-import PantallaReviews from './components/templates/PantallaReviews.jsx';
+import PantallaPrincipal from './templates/PantallaPrincipal.jsx';
+import PantallaAgendar from './templates/PantallaAgendar.jsx';
+import PantallaReviews from './templates/PantallaReviews.jsx';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('PantallaPrincipal');
