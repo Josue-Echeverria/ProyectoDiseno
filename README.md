@@ -306,3 +306,9 @@ Enlace al ReadMe.md dentro de TPetUI: https://github.com/Josue-Echeverria/Proyec
 
 * Para las notificaciones, solo se guarda un log de fechas de creacion, envio y programacion. Recordemos que esta parte es controlada por medio de AQS y Azure functions. El idReceptor puede ser nulo para aquellas notificaciones que deben de ser enviadas a todos los usuarios.
 ![image](https://github.com/user-attachments/assets/8a1ea954-8ad1-4fb5-bb57-b1ed8de42e88)
+
+## Diagrama de backend
+
+![DiagramaBloquesBackend drawio](https://github.com/user-attachments/assets/95491e43-73ce-4de3-9aea-55bb163f9c4e)
+
+[Documentación del Backend](https://github.com/Josue-Echeverria/ProyectoDiseno/blob/main/backend/README.md)
