@@ -2,18 +2,17 @@ const { Sequelize } = require('sequelize');
 
 require('dotenv').config();
 
-const sequelize = new Sequelize('db1', 'admindev', 'S0lo2slow', {
-  host: 'db1dev.database.windows.net',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+  host: process.env.DB_HOST,
   dialect: 'mssql',
-  //port: 1433, // MSSQL Default port
-  //driver: 'tedious',
-  //logging: false, // Disable logging for cleaner output
-  //dialectOptions: {
-      //options: {
-          //encrypt: true, // Encryption is typically required for Azure SQL
-          //trustServerCertificate: false, // Only set to true for development/testing, false for production
-      //},
-  //},
+  port: process.env.DB_PORT || 1433, // MSSQL Default port
+  logging: false, // Disable logging for cleaner output
+  dialectOptions: {
+      options: {
+          encrypt: true, // Encryption is typically required for Azure SQL
+          trustServerCertificate: false, // Only set to true for development/testing, false for production
+      },
+  },
 });
 
 

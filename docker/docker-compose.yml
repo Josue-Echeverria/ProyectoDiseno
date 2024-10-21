@@ -21,7 +21,7 @@ services:
     networks:
       - web
     build:
-      context: .
+      context: ../backend
       dockerfile: ../backend/Dockerfile
     container_name: express-backend
     ports:

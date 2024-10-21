@@ -1,27 +1,22 @@
-# Use the official Node.js image from Docker Hub
+# Usa la imagen oficial de Node.js desde Docker Hub
 FROM node:18-alpine
 
-# Set the working directory inside the container
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copy the package.json and package-lock.json (if available)
-COPY package*.json ./
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /app
 
-# Install dependencies
+# Copia los archivos package.json y package-lock.json (si están disponibles)
+COPY package*.json ./
+# Instala las dependencias
 RUN npm install
 
-# Copy the rest of the application files to the container
 COPY . .
 
-# Expose the port the app runs on
+# Expone el puerto en el que se ejecuta la aplicación
 EXPOSE 3000
 
-# Set environment variables (if any, you can also use a .env file)
-# ENV DB_HOST=mssql
-# ENV DB_USER=yourUsername
-# ENV DB_PASS=yourPassword
-# ENV DB_NAME=yourDatabase
-# ENV DB_PORT=1433
+# Comienza la aplicación
+CMD ["node", "app.js"]
 
-# Start the app
-CMD ["npm", "start"]
