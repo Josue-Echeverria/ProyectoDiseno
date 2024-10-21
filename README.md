@@ -31,8 +31,8 @@ Prioridad 3
 [Scripts para crear base de datos](data)
 
 ### Puntos a recordar:
-* Para la gestion de pagos de citas se guarda el checkout id en la tabla cita que es el que retorna shopify una vez que se va realizar un pago, siempre es de 32 caracteres
-https://shopify.dev/docs/api/admin-rest/2024-01/resources/checkout#post-checkouts
+* Para la gestion de pagos de citas se guarda el checkoutUrl en la tabla cita que es el que retorna shopify una vez que se va realizar un pago, este suele ser de entre 80 a 120 caracteres pero se opta porque el campo sea de 256 para no tener problemas en caso de que el largo aumente 
+[https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/checkout]
 
 
 * Para las notificaciones, solo se guarda un log de fechas de creacion, envio y programacion. Recordemos que esta parte es controlada por medio de AQS y Azure functions. El idReceptor puede ser nulo para aquellas notificaciones que deben de ser enviadas a todos los usuarios.
