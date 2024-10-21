@@ -2,31 +2,24 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const VetProfile = sequelize.define('VetProfile', {
-  id: {
+  idVeterinario: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  clinicName: {
+  especialidad: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  address: {
+  numeroCuenta: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  phone: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  specialization: {
-    type: DataTypes.STRING
-  },
-  userId: {
+  idUsuario: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'Users', // Hace referencia al modelo de Usuario
-      key: 'id'
+      model: 'User', // Hace referencia al modelo de Usuario
+      key: 'idUsuario' // Hace referencia a la columna idUsuario
     }
   }
 }, {

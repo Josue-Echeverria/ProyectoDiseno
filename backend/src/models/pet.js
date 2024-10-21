@@ -5,39 +5,31 @@ const Especie = require('./Especie');
 const Raza = require('./Raza');
 
 const Pet = sequelize.define('Pet', {
-  idPet: {
+  idMascota: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  name: {
-    type: DataTypes.STRING(50),
+  nombre: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
-  idUser: {
+  idUsuario: {
     type: DataTypes.INTEGER,
     references: {
-      model: User,
-      key: 'idUser',
-    },
-    allowNull: false,
+      model: 'User', // Hace referencia al modelo de Usuario
+      key: 'idUsuario' // Hace referencia a la columna idUsuario
+    }
   },
-  idEspecie: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: Especie,
-      key: 'idEspecie',
-    },
-    allowNull: false,
+  especie: {
+    type: DataTypes.STRING,
+    allowNull: false
   },
-  idRaza: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: Raza,
-      key: 'idRaza',
-    },
+  raza: {
+    type: DataTypes.STRING,
+    allowNull: false
   },
-  birthdate: {
+  fechaNacimiento: {
     type: DataTypes.DATE,
   },
 }, {

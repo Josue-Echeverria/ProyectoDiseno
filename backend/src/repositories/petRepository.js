@@ -9,9 +9,6 @@ const PetRepository = {
       where: { idUser: userId },
     });
   },
-  getAll: async () => {
-    return await Pet.findAll();
-  },
   getById: async (id) => {
     return await Pet.findByPk(id);
   },

@@ -13,7 +13,7 @@ const Appointment = sequelize.define('Appointment', {
     type: DataTypes.DATE,
     allowNull: false,
   },
-  idUser: {
+  idUsUsuario: {
     type: DataTypes.INTEGER,
     references: {
       model: User,

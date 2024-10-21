@@ -10,6 +10,9 @@ const VetProfileRepository = {
   getById: async (id) => {
     return await VetProfile.findByPk(id);
   },
+  getByUserId: async (id) => {
+    return await VetProfile.findByPk(id);
+  },//terminarlo
   update: async (id, data) => {
     return await VetProfile.update(data, {
       where: { idVetProfile: id },
