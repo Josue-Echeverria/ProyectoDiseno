@@ -1,15 +1,12 @@
 CREATE DATABASE [db1]
 GO
 
-ALTER DATABASE [db1] SET AUTO_CLOSE OFF;
-
 USE [db1];
 GO
 
-
 GO
 CREATE TABLE [dbo].[especie] (
-    [idEspecie] INT          NOT NULL,
+    [idEspecie] INT IDENTITY (1, 1) NOT NULL,
     [nombre]    VARCHAR (25) NOT NULL,
     CONSTRAINT [PK_especie] PRIMARY KEY CLUSTERED ([idEspecie] ASC)
 );
@@ -18,7 +15,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[raza] (
-    [idRaza]    INT          NOT NULL,
+    [idRaza]    INT IDENTITY (1, 1) NOT NULL,
     [nombre]    VARCHAR (25) NOT NULL,
     [idEspecie] INT          NOT NULL,
     CONSTRAINT [PK_raza] PRIMARY KEY CLUSTERED ([idRaza] ASC),
@@ -29,7 +26,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[tipoOferta] (
-    [idTipoOferta] INT          NOT NULL,
+    [idTipoOferta] INT IDENTITY (1, 1) NOT NULL,
     [nombre]       VARCHAR (20) NOT NULL,
     CONSTRAINT [PK_tipoOferta] PRIMARY KEY CLUSTERED ([idTipoOferta] ASC)
 );
@@ -38,12 +35,11 @@ GO
 
 GO
 CREATE TABLE [dbo].[oferta] (
-    [idOferta]         INT            NOT NULL,
+    [idOferta]         INT IDENTITY (1, 1) NOT NULL,
     [descripcion]      VARCHAR (255)  NULL,
     [idTipoOferta]     INT            NOT NULL,
     [valor]            DECIMAL (5, 2) NOT NULL,
     [activa]           BIT            NOT NULL,
-    [contadorBanderas] INT            NOT NULL,
     CONSTRAINT [PK_oferta] PRIMARY KEY CLUSTERED ([idOferta] ASC),
     CONSTRAINT [FK_oferta_tipoOferta] FOREIGN KEY ([idTipoOferta]) REFERENCES [dbo].[tipoOferta] ([idTipoOferta])
 );
@@ -52,27 +48,15 @@ GO
 
 GO
 CREATE TABLE [dbo].[bandera] (
-    [idBandera] INT NOT NULL,
+    [idBandera] INT  IDENTITY (1, 1) NOT NULL,
     [nombre]    INT NOT NULL,
     CONSTRAINT [PK_bandera] PRIMARY KEY CLUSTERED ([idBandera] ASC)
 );
 GO
 
-
-GO
-CREATE TABLE [dbo].[banderaxOferta] (
-    [idBandera] INT NOT NULL,
-    [idOferta]  INT NOT NULL,
-    CONSTRAINT [PK_banderaxOferta] PRIMARY KEY CLUSTERED ([idBandera] ASC),
-    CONSTRAINT [FK_banderaxOferta_bandera] FOREIGN KEY ([idBandera]) REFERENCES [dbo].[bandera] ([idBandera]),
-    CONSTRAINT [FK_banderaxOferta_oferta] FOREIGN KEY ([idOferta]) REFERENCES [dbo].[oferta] ([idOferta])
-);
-GO
-
-
 GO
 CREATE TABLE [dbo].[pais] (
-    [idPais] INT          NOT NULL,
+    [idPais] INT IDENTITY (1, 1) NOT NULL,
     [codigo] VARCHAR (3)  NOT NULL,
     [nombre] VARCHAR (20) NOT NULL,
     CONSTRAINT [PK_pais] PRIMARY KEY CLUSTERED ([idPais] ASC)
@@ -82,7 +66,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[provincia] (
-    [idProvincia] INT          NOT NULL,
+    [idProvincia] INT IDENTITY (1, 1) NOT NULL,
     [idPais]      INT          NOT NULL,
     [nombre]      VARCHAR (20) NOT NULL,
     CONSTRAINT [PK_provincia] PRIMARY KEY CLUSTERED ([idProvincia] ASC),
@@ -93,7 +77,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[canton] (
-    [idCanton]    INT          NOT NULL,
+    [idCanton]    INT IDENTITY (1, 1) NOT NULL,
     [nombre]      VARCHAR (20) NOT NULL,
     [idProvincia] INT          NOT NULL,
     CONSTRAINT [PK_canton] PRIMARY KEY CLUSTERED ([idCanton] ASC),
@@ -104,7 +88,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[distrito] (
-    [idDistrito] INT          NOT NULL,
+    [idDistrito] INT IDENTITY (1, 1) NOT NULL,
     [idCanton]   INT          NOT NULL,
     [nombre]     VARCHAR (20) NOT NULL,
     CONSTRAINT [PK_distrito] PRIMARY KEY CLUSTERED ([idDistrito] ASC),
@@ -115,11 +99,14 @@ GO
 
 GO
 CREATE TABLE [dbo].[direccion] (
-    [idDireccion] INT NOT NULL,
-    [idPais]      INT NOT NULL,
-    [idProvincia] INT NOT NULL,
-    [idDistrito]  INT NOT NULL,
-    [idCanton]    INT NOT NULL,
+    [idDireccion]     INT               IDENTITY (1, 1) NOT NULL,
+    [idPais]          INT               NOT NULL,
+    [idProvincia]     INT               NOT NULL,
+    [idDistrito]      INT               NOT NULL,
+    [idCanton]        INT               NOT NULL,
+    [direccionExacta] VARCHAR (256)     NOT NULL,
+    [posicion]        [sys].[geography] NOT NULL,
+    [codigoPostal]    VARCHAR (10)      NOT NULL,
     CONSTRAINT [PK_direccion] PRIMARY KEY CLUSTERED ([idDireccion] ASC),
     CONSTRAINT [FK_direccion_canton] FOREIGN KEY ([idCanton]) REFERENCES [dbo].[canton] ([idCanton]),
     CONSTRAINT [FK_direccion_distrito] FOREIGN KEY ([idDistrito]) REFERENCES [dbo].[distrito] ([idDistrito]),
@@ -130,13 +117,25 @@ GO
 
 
 GO
+CREATE TABLE [dbo].[banderaxOferta] (
+    [idBandera] INT NOT NULL,
+    [idOferta]  INT NOT NULL,
+    [objetivo]  INT NULL,
+    CONSTRAINT [PK_banderaxOferta] PRIMARY KEY CLUSTERED ([idBandera] ASC),
+    CONSTRAINT [FK_banderaxOferta_bandera] FOREIGN KEY ([idBandera]) REFERENCES [dbo].[bandera] ([idBandera]),
+    CONSTRAINT [FK_banderaxOferta_oferta] FOREIGN KEY ([idOferta]) REFERENCES [dbo].[oferta] ([idOferta])
+);
+GO
+
+
+GO
 CREATE TABLE [dbo].[usuario] (
-    [idUsuario]       INT          NOT NULL,
+    [idUsuario]       INT IDENTITY (1, 1) NOT NULL,
     [nombre]          VARCHAR (50) NOT NULL,
     [apellido]        VARCHAR (50) NOT NULL,
     [correo]          VARCHAR (50) NOT NULL,
     [telefono]        VARCHAR (20) NOT NULL,
-    [puntuacion]      FLOAT (53)   NOT NULL,
+    [puntuacion]      FLOAT (53)   CONSTRAINT [DEFAULT_usuario_puntuacion] DEFAULT ((0)) NOT NULL,
     [fechaNacimiento] DATE         NOT NULL,
     [idDireccion]     INT          NOT NULL,
     CONSTRAINT [PK_usuario] PRIMARY KEY CLUSTERED ([idUsuario] ASC),
@@ -147,7 +146,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[especialidad] (
-    [idEspecialidad] INT          NOT NULL,
+    [idEspecialidad] INT IDENTITY (1, 1) NOT NULL,
     [nombre]         VARCHAR (40) NOT NULL,
     CONSTRAINT [PK_especialidad] PRIMARY KEY CLUSTERED ([idEspecialidad] ASC)
 );
@@ -156,10 +155,11 @@ GO
 
 GO
 CREATE TABLE [dbo].[veterinario] (
-    [idVeterinario]  INT          NOT NULL,
-    [idUsuario]      INT          NOT NULL,
-    [idEspecialidad] INT          NOT NULL,
-    [numeroCuenta]   VARCHAR (30) NOT NULL,
+    [idVeterinario]  INT           IDENTITY (1, 1) NOT NULL,
+    [idUsuario]      INT           NOT NULL,
+    [idEspecialidad] INT           NOT NULL,
+    [numeroCuenta]   VARCHAR (30)  NOT NULL,
+    [descripcion]    VARCHAR (256) NOT NULL,
     CONSTRAINT [PK_veterinario] PRIMARY KEY CLUSTERED ([idVeterinario] ASC),
     CONSTRAINT [FK_veterinario_especialidad] FOREIGN KEY ([idEspecialidad]) REFERENCES [dbo].[especialidad] ([idEspecialidad]),
     CONSTRAINT [FK_veterinario_usuario] FOREIGN KEY ([idUsuario]) REFERENCES [dbo].[usuario] ([idUsuario])
@@ -167,9 +167,11 @@ CREATE TABLE [dbo].[veterinario] (
 GO
 
 
+
+
 GO
 CREATE TABLE [dbo].[disponibilidad] (
-    [idDisponibilidad] INT      NOT NULL,
+    [idDisponibilidad] INT IDENTITY (1, 1) NOT NULL,
     [idVeterinario]    INT      NOT NULL,
     [diaInicio]        DATE     NOT NULL,
     [diaFin]           DATE     NOT NULL,
@@ -191,17 +193,19 @@ CREATE TABLE [dbo].[banderaxUsuario] (
     [fechaFin]    DATE     NULL,
     [horaInicio]  TIME (7) NULL,
     [horaFin]     TIME (7) NULL,
+    [valor]       INT      NULL,
     CONSTRAINT [PK_banderasUsuario] PRIMARY KEY CLUSTERED ([idUsuario] ASC),
     CONSTRAINT [FK_banderasxUsuario_usuario] FOREIGN KEY ([idUsuario]) REFERENCES [dbo].[usuario] ([idUsuario]),
     CONSTRAINT [FK_banderaxUsuario_bandera] FOREIGN KEY ([idBandera]) REFERENCES [dbo].[bandera] ([idBandera])
 );
+
 GO
 
 
 GO
 CREATE TABLE [dbo].[estado] (
-    [idEstado] INT NOT NULL,
-    [nombre]   INT NOT NULL,
+    [idEstado] INT IDENTITY (1, 1) NOT NULL,
+    [nombre]   VARCHAR (25) NOT NULL,
     CONSTRAINT [PK_estado] PRIMARY KEY CLUSTERED ([idEstado] ASC)
 );
 GO
@@ -209,7 +213,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[cita] (
-    [idCita]           INT           NOT NULL,
+    [idCita]           INT IDENTITY (1, 1) NOT NULL,
     [idDisponibilidad] INT           NOT NULL,
     [fecha]            DATETIME2 (7) NOT NULL,
     [idVeterinario]    INT           NOT NULL,
@@ -218,7 +222,7 @@ CREATE TABLE [dbo].[cita] (
     [idEstado]         INT           NOT NULL,
     [idUsuario]        INT           NULL,
     [descripcion]      VARCHAR (256) NULL,
-    [checkoutToken]    VARCHAR (32)  NULL,
+    [checkoutUrl]      VARCHAR (256) NULL,
     CONSTRAINT [PK_cita] PRIMARY KEY CLUSTERED ([idCita] ASC),
     CONSTRAINT [FK_cita_disponibilidad] FOREIGN KEY ([idDisponibilidad]) REFERENCES [dbo].[disponibilidad] ([idDisponibilidad]),
     CONSTRAINT [FK_cita_estado] FOREIGN KEY ([idEstado]) REFERENCES [dbo].[estado] ([idEstado]),
@@ -230,7 +234,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[mascota] (
-    [idMascota]       INT          NOT NULL,
+    [idMascota]       INT IDENTITY (1, 1) NOT NULL,
     [nombre]          VARCHAR (50) NOT NULL,
     [fechaNacimiento] DATE         NOT NULL,
     [idRaza]          INT          NOT NULL,
@@ -244,7 +248,7 @@ GO
 
 GO
 CREATE TABLE [dbo].[comentario] (
-    [idComentario] INT           NOT NULL,
+    [idComentario] INT IDENTITY (1, 1) NOT NULL,
     [idUsuario]    INT           NOT NULL,
     [idComentador] INT           NOT NULL,
     [puntuacion]   FLOAT (53)    NOT NULL,
@@ -255,6 +259,46 @@ CREATE TABLE [dbo].[comentario] (
     CONSTRAINT [FK_comentarios_usuario] FOREIGN KEY ([idUsuario]) REFERENCES [dbo].[usuario] ([idUsuario])
 );
 GO
+
+
+GO
+CREATE TABLE [dbo].[tipoNotificacion] (
+    [idTipoNotificacion] INT IDENTITY (1, 1) NOT NULL,
+    [nombre]             INT NOT NULL,
+    CONSTRAINT [PK_tipoNotificacion] PRIMARY KEY CLUSTERED ([idTipoNotificacion] ASC)
+);
+GO
+
+
+GO
+CREATE TABLE [dbo].[plantilla] (
+    [idPlantilla] INT            IDENTITY (1, 1) NOT NULL,
+    [nombre]      VARBINARY (20) NOT NULL,
+    [contenido]   TEXT           NOT NULL,
+    CONSTRAINT [PK_plantilla] PRIMARY KEY CLUSTERED ([idPlantilla] ASC)
+);
+GO
+
+
+GO
+CREATE TABLE [dbo].[notificacionLog] (
+    [idNotificacionLog]  INT      IDENTITY (1, 1) NOT NULL,
+    [idTipoNotificacion] INT      NOT NULL,
+    [idEstado]           INT      NOT NULL,
+    [idPlantilla]        INT      NOT NULL,
+    [idReceptor]         INT      NULL,
+    [contenido]          TEXT     NOT NULL,
+    [fechaEnvio]         DATETIME NOT NULL,
+    [fechaCreacion]      DATETIME NOT NULL,
+    [fechaProgamada]     DATETIME NOT NULL,
+    CONSTRAINT [PK_notificacionLog] PRIMARY KEY CLUSTERED ([idNotificacionLog] ASC),
+    CONSTRAINT [FK_notificacionLog_estado] FOREIGN KEY ([idEstado]) REFERENCES [dbo].[estado] ([idEstado]),
+    CONSTRAINT [FK_notificacionLog_plantilla] FOREIGN KEY ([idPlantilla]) REFERENCES [dbo].[plantilla] ([idPlantilla]),
+    CONSTRAINT [FK_notificacionLog_tipoNotificacion] FOREIGN KEY ([idTipoNotificacion]) REFERENCES [dbo].[tipoNotificacion] ([idTipoNotificacion]),
+    CONSTRAINT [FK_notificacionLog_usuario] FOREIGN KEY ([idReceptor]) REFERENCES [dbo].[usuario] ([idUsuario])
+);
+GO
+
 
 
 GO
@@ -271,3 +315,4 @@ CREATE TABLE [dbo].[ErrorLog] (
     CONSTRAINT [PK_ErrorLog_ErrorLogID] PRIMARY KEY CLUSTERED ([ErrorLogID] ASC)
 );
 GO
+
