@@ -1,10 +1,12 @@
+USE [db1];
+GO
 
 INSERT INTO [dbo].[pais] ([codigo],[nombre])
 VALUES
 ('CRI','Costa Rica')
 
 
-INSERT INTO db1.dbo.provincia (idPais, nombre) 
+INSERT INTO dbo.provincia (idPais, nombre) 
 VALUES 
 (1, 'San José'),
 (1, 'Alajuela'),
