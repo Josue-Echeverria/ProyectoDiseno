@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
+const {sequelize } = require('../config/db');
 const User = require('./user');
-const Especie = require('./Especie');
-const Raza = require('./Raza');
+//const Especie = require('./Especie');
+//const Raza = require('./Raza');
 
 const Pet = sequelize.define('Pet', {
   idMascota: {
@@ -33,8 +33,9 @@ const Pet = sequelize.define('Pet', {
     type: DataTypes.DATE,
   },
 }, {
-  tableName: 'pet',
+  tableName: 'mascota',
   timestamps: false,
+  freezeTableName: true, 
 });
 
 User.hasMany(Pet, { foreignKey: 'idUser' });

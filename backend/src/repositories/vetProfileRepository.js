@@ -1,4 +1,4 @@
-const VetProfile = require('../models/VetProfile');
+const VetProfile = require('../models/vetProfile');
 
 const VetProfileRepository = {
   create: async (data) => {
@@ -10,9 +10,13 @@ const VetProfileRepository = {
   getById: async (id) => {
     return await VetProfile.findByPk(id);
   },
-  getByUserId: async (id) => {
-    return await VetProfile.findByPk(id);
-  },//terminarlo
+  getByUserId: async (idUsuario) => {
+      return await VetProfile.findOne({
+        where: {
+          idUsuario: idUsuario
+        }
+      })
+  },
   update: async (id, data) => {
     return await VetProfile.update(data, {
       where: { idVetProfile: id },

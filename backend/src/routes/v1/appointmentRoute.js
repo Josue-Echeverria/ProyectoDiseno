@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const AppointmentController = require('../controllers/appointmentController');
+const AppointmentController = require('../../controllers/appointmentController');
 
 // Appointment Routes
 router.post('/', AppointmentController.createAppointment);

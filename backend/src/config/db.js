@@ -1,17 +1,21 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-  host: process.env.DB_HOST,
+require('dotenv').config();
+
+const sequelize = new Sequelize('db1', 'admindev', 'S0lo2slow', {
+  host: 'db1dev.database.windows.net',
   dialect: 'mssql',
-  port: process.env.DB_PORT || 1433,  // Puerto por defecto para MSSQL
-  logging: false,
-  dialectOptions: {
-    options: {
-      encrypt: true, // Si utilizas Azure u otro servicio que requiera cifrado
-      trustServerCertificate: true, // Solo en desarrollo, si necesitas evitar problemas de certificados
-    },
-  },
+  //port: 1433, // MSSQL Default port
+  //driver: 'tedious',
+  //logging: false, // Disable logging for cleaner output
+  //dialectOptions: {
+      //options: {
+          //encrypt: true, // Encryption is typically required for Azure SQL
+          //trustServerCertificate: false, // Only set to true for development/testing, false for production
+      //},
+  //},
 });
+
 
 const connectDB = async () => {
   try {
@@ -19,7 +23,7 @@ const connectDB = async () => {
     console.log('Conexión a MSSQL establecida correctamente.');
   } catch (error) {
     console.error('No se pudo conectar a la base de datos MSSQL:', error);
-    process.exit(1);
+    process.exit(1); // Exit the process with a failure code
   }
 };
 

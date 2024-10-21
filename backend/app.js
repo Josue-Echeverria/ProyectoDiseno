@@ -1,25 +1,21 @@
 const express = require('express');
-const { connectDB, sequelize } = require('./config/db');
+const { connectDB, sequelize } = require('./src/config/db');
 const app = express();
-const routes = require('./routes/v1');
 
 // Middlewares
 app.use(express.json());
 
 // Importar rutas
-const userRoutes = require('./routes/userRoutes');
-const vetProfileRoutes = require('./routes/vetProfileRoutes');
-const paymentRoutes = require('./routes/paymentRoutes');
-const reminderRoutes = require('./routes/reminderRoutes');
-const appointmentRoutes = require('./routes/appointmentRoutes');
-const medicalRecordRoutes = require('./routes/medicalRecordRoutes');
+const userRoutes = require('./src/routes/v1/userRoutes');
+const vetProfileRoutes = require('./src/routes/v1/vetProfileRoutes');
+const appointmentRoutes = require('./src/routes/v1/appointmentRoute');
+const petRoutes = require('./src/routes/v1/petRoutes');
+
 
 app.use('/api/users', userRoutes);
 app.use('/api/vets', vetProfileRoutes);
-app.use('/api/payments', paymentRoutes);
-app.use('/api/reminders', reminderRoutes);
 app.use('/api/appointments', appointmentRoutes);
-app.use('/api/medical-records', medicalRecordRoutes);
+app.use('/api/pets', petRoutes);
 
 app.use((req, res, next) => {
     next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));

@@ -9,14 +9,21 @@ const PetController = {
       res.status(500).json({ message: error.message });
     }
   },
-  getPets: async (req, res) => {
+  getPetsByUserId: async (req, res) => {
     try {
-      const pets = await PetRepository.getAll();
-      res.status(200).json(pets);
+      const userId = req.params.userId; // Assuming userId is in the route params
+      const pets = await PetRepository.getPetsByUserId(userId);
+  
+      if (!pets || pets.length === 0) {
+        return res.status(404).json({ message: 'No pets found for this user' });
+      }
+  
+      res.status(200).json(pets); // Return the pets if found
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
   },
+  
   getPetById: async (req, res) => {
     try {
       const pet = await PetRepository.getById(req.params.id);

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const {sequelize } = require('../config/db');
 const User = require('./user');
-const VetProfile = require('./VetProfile');
+const VetProfile = require('./vetProfile');
 
 const Appointment = sequelize.define('Appointment', {
   idAppointment: {
@@ -13,7 +13,7 @@ const Appointment = sequelize.define('Appointment', {
     type: DataTypes.DATE,
     allowNull: false,
   },
-  idUsUsuario: {
+  idUser: {
     type: DataTypes.INTEGER,
     references: {
       model: User,
@@ -38,8 +38,9 @@ const Appointment = sequelize.define('Appointment', {
     defaultValue: 'pending',
   },
 }, {
-  tableName: 'appointment',
+  tableName: 'cita',
   timestamps: false,
+  freezeTableName: true, 
 });
 
 User.hasMany(Appointment, { foreignKey: 'idUser' });
@@ -49,4 +50,3 @@ VetProfile.hasMany(Appointment, { foreignKey: 'idVetProfile' });
 Appointment.belongsTo(VetProfile, { foreignKey: 'idVetProfile' });
 
 module.exports = Appointment;
-

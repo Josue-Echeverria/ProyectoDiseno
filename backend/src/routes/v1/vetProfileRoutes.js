@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const VetProfileController = require('../controllers/vetProfileController');
+const VetProfileController = require('../../controllers/vetProfileController');
 
 // VetProfile Routes
 router.post('/', VetProfileController.createVetProfile);
