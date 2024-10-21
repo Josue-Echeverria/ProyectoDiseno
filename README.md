@@ -31,9 +31,15 @@ Convencer al dueño de la mascota de agendar una cita veterinaria virtual.
 
 ![WhatsApp Image 2024-09-28 at 9 22 30 PM](https://github.com/user-attachments/assets/9eb62c6c-f0aa-4df2-9211-9db48f364c5a)
 
+Un dueño de mascota se ha sentido lo convencido por nuestras estrategias de marketing y por lo tanto ha descargado y se ha registrado en la app de TPet
+
 ![WhatsApp Image 2024-09-28 at 9 22 30 PM (1)](https://github.com/user-attachments/assets/16c8c1a0-9971-447e-98ba-34ace57c117e)
 
+Decide que agendara una cita virtual y ve algunas opciones de veterinarios, en donde puede ver el precio, la calificacion, el logo y una pequeña descripcion de cada veterinaria
+
 ![WhatsApp Image 2024-09-28 at 9 22 30 PM (2)](https://github.com/user-attachments/assets/3fed88c3-5a11-4806-8f3b-48e5568de746)
+
+Decide que agendara una cita con el veterinario mas barato y consulta los horarios disponibles 
 
 ## Requerimientos no funcionales
 
