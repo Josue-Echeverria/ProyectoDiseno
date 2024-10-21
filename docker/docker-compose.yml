@@ -13,6 +13,7 @@ services:
       ACCEPT_EULA: Y
     volumes:
       - ./data/:/docker-entrypoint-initdb.d
+      - mssql-data:/var/opt/mssql
     entrypoint: ["/bin/bash", "/docker-entrypoint-initdb.d/entrypoint.sh"]
     networks:
       - web
