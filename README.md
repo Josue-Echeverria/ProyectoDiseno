@@ -298,4 +298,4 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
 ![Diagrama de Clases (1)](https://github.com/user-attachments/assets/ee85b31e-6352-4c84-99ff-05d7b8dd43c6)
 
 ## Boilerplate
-
+Enlace al ReadMe.md dentro de TPetUI: https://github.com/Josue-Echeverria/ProyectoDiseno/blob/main/TPetUI/README.md
