@@ -24,20 +24,6 @@ Prioridad 3
 ## Diagrama de arquitectura
 ![diseño de arquitectura drawio (5)](https://github.com/user-attachments/assets/05f3f1a2-640c-414a-8819-ae351bb61aa9)
 
-## Diagrama de bases de datos datos
-
-![image](https://github.com/user-attachments/assets/8d402d06-322a-4d28-9bc6-0d2d26b547b0)
-
-[Scripts para crear base de datos](data)
-
-### Puntos a recordar:
-* Para la gestion de pagos de citas se guarda el checkoutUrl en la tabla cita que es el que retorna shopify una vez que se va realizar un pago, este suele ser de entre 80 a 120 caracteres pero se opta porque el campo sea de 256 para no tener problemas en caso de que el largo aumente 
-[https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/checkout]
-
-
-* Para las notificaciones, solo se guarda un log de fechas de creacion, envio y programacion. Recordemos que esta parte es controlada por medio de AQS y Azure functions. El idReceptor puede ser nulo para aquellas notificaciones que deben de ser enviadas a todos los usuarios.
-![image](https://github.com/user-attachments/assets/8a1ea954-8ad1-4fb5-bb57-b1ed8de42e88)
-
 
 
 ## Problem Statement y Storyboard
@@ -299,3 +285,18 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
 
 ## Boilerplate
 Enlace al ReadMe.md dentro de TPetUI: https://github.com/Josue-Echeverria/ProyectoDiseno/blob/main/TPetUI/README.md
+
+
+## Diagrama de bases de datos datos
+
+![image](https://github.com/user-attachments/assets/8d402d06-322a-4d28-9bc6-0d2d26b547b0)
+
+[Scripts para crear base de datos](data)
+
+### Puntos a recordar:
+* Para la gestion de pagos de citas se guarda el checkoutUrl en la tabla cita que es el que retorna shopify una vez que se va realizar un pago, este suele ser de entre 80 a 120 caracteres pero se opta porque el campo sea de 256 para no tener problemas en caso de que el largo aumente 
+[https://shopify.dev/docs/storefronts/headless/building-with-the-storefront-api/checkout]
+
+
+* Para las notificaciones, solo se guarda un log de fechas de creacion, envio y programacion. Recordemos que esta parte es controlada por medio de AQS y Azure functions. El idReceptor puede ser nulo para aquellas notificaciones que deben de ser enviadas a todos los usuarios.
+![image](https://github.com/user-attachments/assets/8a1ea954-8ad1-4fb5-bb57-b1ed8de42e88)
