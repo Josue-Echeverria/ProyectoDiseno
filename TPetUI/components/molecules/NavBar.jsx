@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import NavItem from '../atoms/NavItem.jsx';
-import casa from '../assets/casa.png';
-import campana from '../assets/campana.png';
-import usuario from '../assets/usuario.png';
-import mascotas from '../assets/mascotas.png';
+import casa from '../../assets/casa.png';
+import campana from '../../assets/campana.png';
+import usuario from '../../assets/usuario.png';
+import mascotas from '../../assets/mascotas.png';
 
 const NavBar = ({ goToPantallaPrincipal, onSettingsPress, onProfilePress }) => {
   return (

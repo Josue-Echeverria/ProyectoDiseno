@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import BackArrow from '../assets/backArrow.png'; 
+import BackArrow from '../../assets/backArrow.png'; 
 
 const BlueContainer = ({ text, onBackPress, showBackArrow = true }) => {
   return (

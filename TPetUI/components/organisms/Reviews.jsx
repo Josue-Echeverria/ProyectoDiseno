@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Estrellas from '../atoms/RateEstrellas'; // Componente de estrellas
-import imagen1 from '../assets/LogoVetDefault.png'; // Imagen del usuario
+import imagen1 from '../../assets/LogoVetDefault.png'; // Imagen del usuario
 
 const ReviewItem = ({ userName, reviewText, rating, date }) => {
   return (
