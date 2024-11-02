@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import PantallaPrincipal from './templates/PantallaPrincipal.jsx';
 import PantallaAgendar from './templates/PantallaAgendar.jsx';
 import PantallaReviews from './templates/PantallaReviews.jsx';
+import PantallaCitaFinalizada from './templates/PantallaCitaFinalizada.jsx';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState('PantallaPrincipal');
+  const [currentScreen, setCurrentScreen] = useState('PantallaCitaFinalizada');
   
   // Añadido cantEstrellas para pasarlo también
   const [veterinarioSeleccionado, setVeterinarioSeleccionado] = useState({
@@ -46,6 +47,18 @@ export default function App() {
     } else if (currentScreen === 'PantallaReviews') {
       return (
         <PantallaReviews
+          goBack={() => setCurrentScreen('PantallaPrincipal')}
+          goToAgendar={() => setCurrentScreen('PantallaAgendar')}
+          nombre={veterinarioSeleccionado.nombre}
+          precio={veterinarioSeleccionado.precio}
+          especialidad={veterinarioSeleccionado.especialidad}
+          descripcion={veterinarioSeleccionado.descripcion}
+          cantEstrellas={veterinarioSeleccionado.cantEstrellas}
+        />
+      );
+    } else if (currentScreen === 'PantallaCitaFinalizada') {
+      return (
+        <PantallaCitaFinalizada
           goBack={() => setCurrentScreen('PantallaPrincipal')}
           goToAgendar={() => setCurrentScreen('PantallaAgendar')}
           nombre={veterinarioSeleccionado.nombre}
