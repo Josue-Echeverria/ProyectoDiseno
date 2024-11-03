@@ -16,11 +16,17 @@ const MedicamentosContainer = ({ medicamentos }) => {
         </View>
     );
 };
-
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+
+        justifyContent: 'space-between',
         padding: 10,
+        backgroundColor: 'lightgrey',
+        margin: 10,
+        borderRadius: 10,
     },
 });
 

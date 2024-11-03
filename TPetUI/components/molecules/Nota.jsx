@@ -3,21 +3,22 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const Nota = ({ nota }) => {
   return (
-    <View style={styles.starContainer}>
-        <Text>{nota}</Text>
+    <View style={styles.container}>
+        <Text style={styles.texto}>{nota}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  navItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  container: {
+    margin: 5,
     padding: 10,
+    backgroundColor: '#0FA3B1',
+    borderRadius: 5,
   },
-  icon: {
-    width: 30,
-    height: 30,
+  texto: {
+    color: 'white',
+    fontSize: 15,
   },
 });
 
