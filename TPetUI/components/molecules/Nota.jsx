@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
   container: {
     margin: 5,
     padding: 10,
-    backgroundColor: '#0FA3B1',
+    backgroundColor: 'lightgrey',
     borderRadius: 5,
   },
   texto: {
-    color: 'white',
+    color: 'grey',
     fontSize: 15,
   },
 });

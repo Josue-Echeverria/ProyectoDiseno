@@ -12,13 +12,13 @@ const BotonComprar = ({ text, onPress, style }) => {
 const styles = StyleSheet.create({
   button: {
     //Red
-    backgroundColor: '#FF0000',
+    backgroundColor: '#0FA3B1',
     padding: 10,
-    width: 150,
     borderRadius: 5,
     margin: 10,
+    marginBottom: 0,
     width: '95%',
-    height: '7%',
+    height: 50,
     justifyContent: 'center',
   },
   text: {

@@ -38,6 +38,7 @@ export default function App() {
       return (
         <PantallaAgendar
           goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')}
+          goToCitaFinalizada={() => setCurrentScreen('PantallaCitaFinalizada')}
           goToAgendar={() => setCurrentScreen('PantallaAgendar')}
           nombre={veterinarioSeleccionado.nombre}
           precio={veterinarioSeleccionado.precio}

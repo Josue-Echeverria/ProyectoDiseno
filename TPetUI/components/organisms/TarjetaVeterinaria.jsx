@@ -8,6 +8,10 @@ const TarjetaVeterinaria = ({ nombre, horario, especialidad, rating, descripcion
     <View style={styles.container}>
       <View style={styles.header}>
         {/* Imagen del veterinario */}
+        <Image 
+          source={typeof imagen === 'number' ? imagen : { uri: imagen }} 
+          style={styles.imagenVeterinaria} 
+        />
         {rating ? <Estrellas stars={rating} style={styles.estrellasContainer} /> : null}
       </View>
 
