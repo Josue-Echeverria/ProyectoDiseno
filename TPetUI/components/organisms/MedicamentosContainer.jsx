@@ -29,6 +29,7 @@ const MedicamentosContainer = ({ medicamentos, comprar }) => {
             <BotonComprar
               text="Comprar Medicamentos"
               onPress={comprar}
+              medicamentos={medicamentos}
               />
         </View>
     );

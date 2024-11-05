@@ -28,16 +28,17 @@ const NotasContainer = ({ notas }) => {
                         </LinearGradient>
                     </Defs>
                     <Text 
-                    fill="url(#rainbow)" 
-                    stroke="url(#rainbow)" 
-                    strokeLinecap="round"  
-                    strokeWidth="0.5" 
-                    strokeLinejoin="round"
-                    x="12" y="30" 
-                    fontSize="22" 
-                    textAnchor="start" 
-                    fontWeight="bold" 
-                    fontFamily="Courier New">
+                        fill="url(#rainbow)" 
+                        stroke="url(#rainbow)" 
+                        strokeLinecap="round"  
+                        strokeWidth="0.5" 
+                        strokeLinejoin="round"
+                        x="12" y="30" 
+                        fontSize="22" 
+                        textAnchor="start" 
+                        fontWeight="bold" 
+                        fontFamily="Courier New"
+                    >
                         Notas de la reunion
                     </Text>
                 </Svg>
