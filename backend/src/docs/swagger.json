@@ -1,0 +1,316 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API TPet",
+    "version": "1.0.0",
+    "description": "API para manejar los datos de una TeleVeterinaria"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/users": {
+      "post": {
+        "summary": "Create a new user",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "User created" } }
+      },
+      "get": {
+        "summary": "Retrieve all users",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "List of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/User" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "summary": "Retrieve a user by ID",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User data",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/User" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a user",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "User ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "User updated" } }
+      },
+      "delete": {
+        "summary": "Delete a user",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "User ID"
+          }
+        ],
+        "responses": { "200": { "description": "User deleted" } }
+      }
+    },
+    "/api/vets": {
+      "post": {
+        "summary": "Create a new veterinarian profile",
+        "tags": ["Vets"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/VetProfile" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Veterinarian profile created" }
+        }
+      },
+      "get": {
+        "summary": "Retrieve all veterinarian profiles",
+        "tags": ["Vets"],
+        "responses": {
+          "200": {
+            "description": "List of veterinarian profiles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/VetProfile" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/vets/{id}": {
+      "get": {
+        "summary": "Retrieve veterinarian profile by ID",
+        "tags": ["Vets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "Veterinarian ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Veterinarian profile data",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VetProfile" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update veterinarian profile",
+        "tags": ["Vets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "Veterinarian ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/VetProfile" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Veterinarian profile updated" }
+        }
+      },
+      "delete": {
+        "summary": "Delete veterinarian profile",
+        "tags": ["Vets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "Veterinarian ID"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Veterinarian profile deleted" }
+        }
+      }
+    },
+    "/api/appointments": {
+      "post": {
+        "summary": "Create a new appointment",
+        "tags": ["Appointments"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Appointment" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Appointment created" } }
+      },
+      "get": {
+        "summary": "Retrieve all appointments",
+        "tags": ["Appointments"],
+        "responses": {
+          "200": {
+            "description": "List of appointments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Appointment" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pets": {
+      "post": {
+        "summary": "Create a new pet",
+        "tags": ["Pets"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Pet" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Pet created" } }
+      },
+      "get": {
+        "summary": "Retrieve pets by user ID",
+        "tags": ["Pets"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": { "type": "integer" },
+            "description": "Owner User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of pets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Pet" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "required": ["username", "email"],
+        "properties": {
+          "id": { "type": "integer" },
+          "username": { "type": "string" },
+          "email": { "type": "string" }
+        }
+      },
+      "VetProfile": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "clinicName": { "type": "string" },
+          "specialization": { "type": "string" }
+        }
+      },
+      "Appointment": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "date": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Pet": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "species": { "type": "string" }
+        }
+      }
+    }
+  }
+}
