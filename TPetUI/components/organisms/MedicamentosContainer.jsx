@@ -1,16 +1,11 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Medicamento from '../molecules/Medicamento'; // Adjust the import path as necessary
-import BotonComprar from '../atoms/BotonComprar';
-import Svg, {
-    LinearGradient,
-    Text,
-    Defs,
-    Stop,
-    TSpan
-  } from 'react-native-svg';
+import Medicamento from '../atoms/Medicamento'; // Adjust the import path as necessary
+import BotonComprar from '../molecules/BotonComprar';
+import {Svg, Text } from 'react-native-svg';
 
-const MedicamentosContainer = ({ medicamentos, comprar }) => {
+const MedicamentosContainer = ({ medicamentos, comprar, goToPantallaPrincipal }) => {
+    let total = 0;
     return (
         <View style={styles.container}>
             <Svg height="50" width="100%">
@@ -24,12 +19,15 @@ const MedicamentosContainer = ({ medicamentos, comprar }) => {
                     nombre={medicamento.nombre}
                     imagen={medicamento.imagen}
                     cantidad={medicamento.cantidad} 
+                    vistaReducida={false}
                 />
+                
             ))}
             <BotonComprar
-              text="Comprar Medicamentos"
-              onPress={comprar}
-              medicamentos={medicamentos}
+                text="Comprar Medicamentos"
+                onPress={comprar}
+                medicamentos={medicamentos}
+                goToPantallaPrincipal={goToPantallaPrincipal}
               />
         </View>
     );

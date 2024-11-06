@@ -12,13 +12,13 @@ const PantallaCitaFinalizada =({ goBack, goToAgendar, nombre, precio, especialid
   const [medicamentos, setMedicamentos] = useState([]);
 
   const testMedicamentos = [
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1},
-     {"nombre": "Crema de rosas", "imagen": cremaRosas, "cantidad": 2}
+    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
+    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
+    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
+    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
+    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
+    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
+     {"nombre": "Crema de rosas", "imagen": cremaRosas, "cantidad": 2, "precio": 10000},
     ]
 
   const testNotas = [
@@ -50,6 +50,7 @@ const PantallaCitaFinalizada =({ goBack, goToAgendar, nombre, precio, especialid
         )}
         {medicamentos && (
           <MedicamentosContainer
+            goToPantallaPrincipal={goBack}
             medicamentos={medicamentos}
             comprar={goToAgendar}
           />
