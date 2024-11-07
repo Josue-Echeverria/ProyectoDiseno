@@ -297,7 +297,9 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
       - **Agregar una nueva mascota:** Permite al usuario añadir una nueva mascota proporcionando su nombre, especie, raza y una foto.
 
       - **Editar información de una mascota:** Permite al usuario modificar los datos de una mascota existente, como su nombre, especie, raza y foto.
-     
+
+   ![pantallaUsuario](https://github.com/user-attachments/assets/116cacf7-cee8-42c7-86da-d227fb0164d8)
+
 5) Pantalla notificaciones
     - ¿Qué debe suceder?
 
