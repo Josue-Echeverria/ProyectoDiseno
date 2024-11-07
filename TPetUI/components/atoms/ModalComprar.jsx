@@ -23,7 +23,6 @@ const ModalComprar = ({modalVisible, setModalVisible, medicamentos, goToPantalla
             transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
                 setModalVisible(!modalVisible);
             }}
         >
@@ -32,7 +31,7 @@ const ModalComprar = ({modalVisible, setModalVisible, medicamentos, goToPantalla
                 <View style={styles.modalView}>
                     <ScrollView style={styles.scroll}>    
                         {medicamentos.map((medicamento, index) => {
-                            total += medicamento.precio;
+                            total += medicamento.precio*medicamento.cantidad;
                             return (
                                 <Medicamento 
                                     key={index}

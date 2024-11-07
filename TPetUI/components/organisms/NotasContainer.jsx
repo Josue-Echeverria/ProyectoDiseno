@@ -1,15 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, ScrollView } from 'react-native';
 import Nota from '../molecules/Nota'; // Adjust the import path as necessary
-import { ScrollView } from 'react-native';
 import imagen from '../../assets/ia_stars.png'; // Imagen del usuario
-import Svg, {
-    LinearGradient,
-    Text,
-    Defs,
-    Stop,
-    TSpan
-  } from 'react-native-svg';
+import { Svg, LinearGradient, Text, Defs, Stop} from 'react-native-svg';
 
 const NotasContainer = ({ notas }) => {
     return (
@@ -43,14 +36,12 @@ const NotasContainer = ({ notas }) => {
                     </Text>
                 </Svg>
             </View>
-            <ScrollView style={styles.scrollView}>
                 {notas.map((nota, index) => (
                     <Nota 
                         key={index} 
                         nota={nota} 
                     />
                 ))}
-            </ScrollView>
         </View>
     );
 };
@@ -62,6 +53,10 @@ const styles = StyleSheet.create({
         margin: 10,
         borderRadius: 10,
         height: 300,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        height: 'auto',
     },
     iaStars: {
         width: 40,
@@ -74,6 +69,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 10,
+    },
+    scrollView: {
+      height: 'auto',
+      flex: 1,
+      marginBottom: 5,
     },
 });
 

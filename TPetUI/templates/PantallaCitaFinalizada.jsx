@@ -3,33 +3,26 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import NotasContainer from '../components/organisms/NotasContainer';
 import MedicamentosContainer from '../components/organisms/MedicamentosContainer';
 import BlueContainer from '../components/molecules/BlueContainer';
-import acetaminofen from '../assets/acetaminofen.png';
-import cremaRosas from '../assets/cremaRosas.jpg';
+import desparisante from '../assets/desparasitante.jpeg';
+import vetericyn from '../assets/vetericyn.jpeg';
+import dermolan from '../assets/dermolan.jpg';
 import { useState } from 'react';
 
-const PantallaCitaFinalizada =({ goBack, goToAgendar, nombre, precio, especialidad, descripcion, cantEstrellas }) => {
+const PantallaCitaFinalizada =({ goBack, goToAgendar }) => {
   const [notas, setNotas] = useState([]);
   const [medicamentos, setMedicamentos] = useState([]);
 
   const testMedicamentos = [
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
-    {"nombre": "Acetaminofen", "imagen": acetaminofen , "cantidad": 1, "precio": 5000},
-     {"nombre": "Crema de rosas", "imagen": cremaRosas, "cantidad": 2, "precio": 10000},
+    {"nombre": "Desparasintante", "imagen": desparisante , "cantidad": 2, "precio": 4750},
+    {"nombre": "Vetericyn", "imagen": vetericyn , "cantidad": 1, "precio": 5000},
+    {"nombre": "Dermolan", "imagen": dermolan , "cantidad": 1, "precio": 4850},
     ]
 
   const testNotas = [
-                  "El perro parece que tiene una infeccion y al parecer tambien odia a su dueño sin razon por lo que se receta que se lleve a un psicologo"
-                  , "El perro necesita una vacuna"
-                  , "El perro necesita una cirugía"
-                  , "El perro necesita una revisión"
-                  , "El perro necesita una dieta especial"
-                  , "El perro necesita ejercicio regular"
-                  , "El perro necesita un chequeo mensual"
-                  , "El perro necesita una limpieza dental"
+                 "El perro presenta una irritación en la piel, en la parte atras de la oreja izquierda"
+                  , "Su ultima desparasitación fue hace 3 meses"
+                  , "Debe aplicar Dermolan y Vetericyn en la zona afectada 2 veces al día"
+                  , "Debe aplicar el desparasitante en 3 días"
                 ]
 
   React.useEffect(() => {

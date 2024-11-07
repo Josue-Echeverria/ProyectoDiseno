@@ -7,29 +7,17 @@ const TarjetaVeterinaria = ({ nombre, horario, especialidad, rating, descripcion
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        {/* Imagen del veterinario */}
         <Image 
           source={typeof imagen === 'number' ? imagen : { uri: imagen }} 
           style={styles.imagenVeterinaria} 
         />
         {rating ? <Estrellas stars={rating} style={styles.estrellasContainer} /> : null}
       </View>
-
-      {/* Contenido textual con renderizado condicional */}
       <View style={styles.textContainer}>
-        {/* Solo se muestra si existe 'nombre' */}
         {nombre ? <Text style={styles.title}>{nombre}</Text> : null}
-
-        {/* Solo se muestra si existe 'especialidad' */}
         {especialidad ? <Text style={styles.specialty}>{especialidad}</Text> : null}
-
-        {/* Solo se muestra si existe 'horario' */}
         {horario ? <Text style={styles.schedule}>{horario}</Text> : null}
-
-        {/* Solo se muestra si existe 'descripcion' */}
         {descripcion ? <Text style={styles.description}>{descripcion}</Text> : null}
-
-        {/* Solo se muestra si existe 'precio' */}
         {precio ? (
           <View style={styles.row}>
             <Text style={styles.priceBefore}>₡{precio}</Text>
@@ -37,7 +25,6 @@ const TarjetaVeterinaria = ({ nombre, horario, especialidad, rating, descripcion
           </View>
         ) : null}
 
-        {/* Botón de acción */}
         <View style={styles.buttonContainer}>
           <Boton 
             text="Agenda tu cita" 
@@ -83,14 +70,14 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center', 
-    marginTop: -50, // Mover la imagen hacia arriba
+    marginTop: -50, 
     marginBottom: 10,
   },
   imagenVeterinaria: {
-    width: 90, // Tamaño ajustado para imagen más compacta
+    width: 90,  
     height: 90,
-    borderRadius: 45, // Hacer la imagen circular
-    marginBottom: 10, // Espacio entre imagen y estrellas
+    borderRadius: 45,  
+    marginBottom: 10,  
   },
   textContainer: {
     alignItems: 'center', // Centrar todo el contenido de texto
@@ -116,6 +103,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#777',
     marginBottom: 10,
+    height: 30,
   },
   buttonContainer: {
     marginTop: 5,

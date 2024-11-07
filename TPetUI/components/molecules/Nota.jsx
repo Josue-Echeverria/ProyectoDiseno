@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: 'lightgrey',
     borderRadius: 5,
+    width: '98%',
   },
   texto: {
     color: 'grey',

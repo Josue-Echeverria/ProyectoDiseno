@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import PantallaPrincipal from './templates/PantallaPrincipal.jsx';
 import PantallaAgendar from './templates/PantallaAgendar.jsx';
 import PantallaReviews from './templates/PantallaReviews.jsx';
+import PantallaMascotas from './templates/PantallaMascotas.jsx';
+import PantallaNotificaciones from './templates/PantallaNotificaciones.jsx';
 import PantallaCitaFinalizada from './templates/PantallaCitaFinalizada.jsx';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState('PantallaCitaFinalizada');
+  const [currentScreen, setCurrentScreen] = useState('PantallaPrincipal');
   
   // Añadido cantEstrellas para pasarlo también
   const [veterinarioSeleccionado, setVeterinarioSeleccionado] = useState({
@@ -32,6 +34,8 @@ export default function App() {
             setVeterinarioSeleccionado({ nombre, precio, especialidad, descripcion, cantEstrellas });
             setCurrentScreen('PantallaReviews');
           }}
+          goToMascotas={() => setCurrentScreen('PantallaMascotas')}
+          goToNotificaciones={() => setCurrentScreen('PantallaNotificaciones')}
         />
       );
     } else if (currentScreen === 'PantallaAgendar') {
@@ -62,16 +66,26 @@ export default function App() {
         <PantallaCitaFinalizada
           goBack={() => setCurrentScreen('PantallaPrincipal')}
           goToAgendar={() => setCurrentScreen('PantallaAgendar')}
-          nombre={veterinarioSeleccionado.nombre}
-          precio={veterinarioSeleccionado.precio}
-          especialidad={veterinarioSeleccionado.especialidad}
-          descripcion={veterinarioSeleccionado.descripcion}
-          cantEstrellas={veterinarioSeleccionado.cantEstrellas}
         />
       );
-    }
+    } else if (currentScreen === 'PantallaMascotas') {
+      return (
+        <PantallaMascotas
+          goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')}
+          goToMascotas={() => setCurrentScreen('PantallaMascotas')}
+          goToNotificaciones={() => setCurrentScreen('PantallaNotificaciones')}
+        />
+      );
+    } else if (currentScreen === 'PantallaNotificaciones') {
+      return (
+        <PantallaNotificaciones
+          goToPantallaPrincipal={() => setCurrentScreen('PantallaPrincipal')}
+          goToMascotas={() => setCurrentScreen('PantallaMascotas')}
+          goToNotificaciones={() => setCurrentScreen('PantallaNotificaciones')}
+        />  
+      );
+    };
   };
-
   return (
     <React.Fragment>
       {renderScreen()}
