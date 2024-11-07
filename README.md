@@ -308,8 +308,9 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
     - ¿Qué acciones se pueden realizar?
       - **Filtrar notificaciones:** El usuario podra filtrar las notificaciones por tipo: "Importantes", "No leidas", "Leidas", "Recordatorios".
       - **Ver notificacion:** El usuario podra abrir una pantalla para ver los detalles de la notificacion.
-        
-![Imagen de WhatsApp 2024-11-06 a las 22 47 56_0c31dfae](https://github.com/user-attachments/assets/271fe8ca-40c7-4982-90a7-58713c085afe)
+
+![pantallaNotificaciones](https://github.com/user-attachments/assets/581cf143-9460-4101-a8c8-c92d772bcb43)
+
 
 6) Pantalla cita finalizada
     - ¿Qué debe suceder?
@@ -320,9 +321,10 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
       - **Regresar a la pantalla principal:** Esta acción se encuentra disponible tanto en el encabezado como en la barra de navegación.
       - **Comprar medicamentos:** En esta pantalla el usuario podra comprar los medicamentos recetados por el veterinario durante la cita. 
 
-![Imagen de WhatsApp 2024-11-06 a las 15 26 32_5c6976b7](https://github.com/user-attachments/assets/dad193e9-ddd6-4063-b4f4-9fe057b48f4c)
-![Imagen de WhatsApp 2024-11-06 a las 15 27 46_d72cfc78](https://github.com/user-attachments/assets/5d6115cb-52e8-4b56-882a-a489fc371954)
-![Imagen de WhatsApp 2024-11-06 a las 15 28 01_e1e98fce](https://github.com/user-attachments/assets/e7b6f13e-804f-4d9a-baae-3972dded94e0)
+![imagenCitaFinalizada1](https://github.com/user-attachments/assets/b805c2ff-c79f-4147-b92b-bc158574bdd7)
+![imagenCitaFinalizada2](https://github.com/user-attachments/assets/512d72da-ae9c-459b-862b-ed02775b2b88)
+![imagenCitaFinalizada3](https://github.com/user-attachments/assets/1f061924-71bb-4610-b1e9-454ced7af585)
+
 
 ## Diagrama de Capas
 ![Diagrama de capas drawio](https://github.com/user-attachments/assets/ad121cdd-0a66-4e0d-a72a-e6334b041a6d)
