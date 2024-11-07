@@ -323,7 +323,7 @@ La documentación debe estar almacenada en un repositorio de 'GitHub' y actualiz
 ![Imagen de WhatsApp 2024-11-06 a las 15 28 01_e1e98fce](https://github.com/user-attachments/assets/e7b6f13e-804f-4d9a-baae-3972dded94e0)
 
 ## Diagrama de Capas
-![Diagrama de capas](https://github.com/user-attachments/assets/1cef0aad-5bb0-4c98-b128-8ae6aa6955d2)
+![Diagrama de capas drawio](https://github.com/user-attachments/assets/ad121cdd-0a66-4e0d-a72a-e6334b041a6d)
 
 ## Diagrama de Clases
 ![Diagrama de Clases (1)](https://github.com/user-attachments/assets/ee85b31e-6352-4c84-99ff-05d7b8dd43c6)
