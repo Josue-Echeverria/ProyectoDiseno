@@ -11,7 +11,7 @@ const VetProfileController = {
   },
   getVetProfiles: async (req, res) => {
     try {
-      const vetProfiles = await VetProfileRepository.getAll();
+      const vetProfiles = await VetProfileRepository.getVetProfilesFromStoredProcedure();
       res.status(200).json(vetProfiles);
     } catch (error) {
       res.status(500).json({ message: error.message });

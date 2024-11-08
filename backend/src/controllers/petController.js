@@ -11,8 +11,7 @@ const PetController = {
   },
   getPetsByUserId: async (req, res) => {
     try {
-      const userId = req.params.userId; // Assuming userId is in the route params
-      const pets = await PetRepository.getPetsByUserId(userId);
+      const pets = await PetRepository.getPetsByUserId(req.params.id);
   
       if (!pets || pets.length === 0) {
         return res.status(404).json({ message: 'No pets found for this user' });

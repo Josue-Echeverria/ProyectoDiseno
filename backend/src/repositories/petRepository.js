@@ -1,3 +1,4 @@
+const { sequelize } = require('../config/db');
 const Pet = require('../models/pet');
 
 const PetRepository = {
@@ -22,6 +23,13 @@ const PetRepository = {
       where: { idPet: id },
     });
   },
+  getPetsByUserId: async (idUsuario) => {
+    const pets = await sequelize.query('EXEC getPetByUserId @idUsuario = :idUsuario', {
+      replacements: { idUsuario }, // Reemplaza el parámetro :idUsuario
+      type: sequelize.QueryTypes.SELECT, // Especifica que esperamos un array de resultados
+    });
+    return pets;
+  }
 };
 
 module.exports = PetRepository;

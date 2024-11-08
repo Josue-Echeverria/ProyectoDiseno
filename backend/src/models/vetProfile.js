@@ -19,12 +19,9 @@ const VetProfile = sequelize.define('VetProfile', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    idUsuario: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'User', // Hace referencia al modelo de Usuario
-            key: 'idUsuario' // Hace referencia a la columna idUsuario
-        }
+    usuario: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     tableName: 'veterinario',  // Asegura que Sequelize usa el nombre de tabla exacto

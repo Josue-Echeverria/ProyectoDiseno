@@ -1,3 +1,4 @@
+const { sequelize } = require('../config/db');
 const VetProfile = require('../models/vetProfile');
 
 const VetProfileRepository = {
@@ -27,6 +28,25 @@ const VetProfileRepository = {
       where: { idVetProfile: id },
     });
   },
+
+  getVetProfilesFromStoredProcedure: async () => {
+    try {
+      let results = await sequelize.query('EXEC getVet', {
+        type: sequelize.QueryTypes.SELECT,
+      });
+      if (!Array.isArray(results)) {
+        // Si el resultado no es un array, conviértelo en un array
+        results = [results];
+    }
+      // Convertimos los resultados al modelo de Sequelize sin persistirlos
+      const vetProfiles = results.map(data => VetProfile.build(data, { isNewRecord: false }));
+      return vetProfiles;
+    } catch (error) {
+      console.error('Error obteniendo perfiles de veterinario:', error);
+      return [];
+    }
+  },
 };
+
 
 module.exports = VetProfileRepository;

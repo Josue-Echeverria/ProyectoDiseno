@@ -27,9 +27,9 @@ services:
     ports:
       - 3000:3000
     environment:
-      DB_HOST: mssql
-      DB_USER: sa
-      DB_PASS: YourStrong!Passw0rd
+      DB_HOST: db1dev.database.windows.net
+      DB_USER: admindev
+      DB_PASS: S0lo2slow
       DB_NAME: db1
       DB_PORT: 1433
     depends_on:

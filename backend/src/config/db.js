@@ -9,7 +9,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   logging: false, // Disable logging for cleaner output
   dialectOptions: {
       options: {
-          encrypt: false, // Encryption is typically required for Azure SQL
+          encrypt: true, // Encryption is typically required for Azure SQL
           trustServerCertificate: false, // Only set to true for development/testing, false for production
       },
   },
